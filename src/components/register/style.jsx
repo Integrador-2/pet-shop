@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     height: 100%;
-    width: 100%;    
+    width: 100%;
 `;
 
 export const DivTitle = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 45px;   
-         
+    margin-top: 45px;
+
 `;
 
 export const Title = styled.span`
-    font-family: Verdana;
     font-size: 18pt;
 `;
 
@@ -28,40 +27,30 @@ export const DivFields = styled.div`
 export const FieldContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: left;    
+    justify-content: left;
 `;
 
 export const FieldLabel = styled.label`
-    font-family: Verdana;
     font-size: 15pt;
-    color: grey;
-`
+`;
 
 export const Field = styled.input`
     width: 400px;
-    border-radius: 20px;
     height: 40px;
+    border-radius: 20px;
     border-color: black;
-`
+`;
 
 export const DivButtonForm = styled.div`
-    width: 500px;
-    display: flex;    
+    display: flex;
     justify-content: center;
 `;
 
-export const ButtonForm = styled.button `
+export const ButtonForm = styled.button`
     width: 200px;
     height: 45px;
     border-radius: 35px;
-    font-family: Verdana; 
     font-size: 15pt;
-    background: linear-gradient(#9F84BC, #D9C8E2, #DCF1F9, #BCE5EF);
-    color: black;
-    margin-left: 65px;
-
-    &:hover {
-        pointer: click;
-        
-    }
+    background: var(--gradient);
+    margin: 45px;
 `;

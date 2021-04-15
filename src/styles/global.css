@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradient: linear-gradient(#9F84BC, #D9C8E2, #DCF1F9, #BCE5EF);
+    --purple:  #C7C3E1;
+    --green: #9AE5D6;
+    --greenButton: #BCE5EF;
+}
+
+@media(max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media(max-width: 720px) {
+    html {
+        font-size: 87.5%;
+    }
+}
+
+body {
+    background: var(--purple);
+    background-image: url("./background.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    color: #6F5E4D;
+}
+
+body, input, textarea, button {
+    color: #6F5E4D;
+    font: 400 1rem "Noto Sans JP", Verdana;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

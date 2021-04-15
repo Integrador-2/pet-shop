@@ -1,19 +1,19 @@
 import React from 'react';
-import {Container, ButtonContainer} from './style';
+import { Container, ButtonContainer } from './style';
 import ButtonMenu from '../buttonMenu';
 
 const GroupButtons = () => {
     return (
         <Container>
             <ButtonContainer>
-                <ButtonMenu text="Botão 1"></ButtonMenu>
-                <ButtonMenu text="Botão 2"></ButtonMenu>
-                <ButtonMenu text="Botão 3"></ButtonMenu>
-                <ButtonMenu text="Botão 4"></ButtonMenu>
-                <ButtonMenu text="Botão 5"></ButtonMenu>
-                <ButtonMenu text="Botão 6"></ButtonMenu>
-                <ButtonMenu text="Botão 7"></ButtonMenu>
-                <ButtonMenu text="Botão 8"></ButtonMenu>
+                <ButtonMenu text="Cadastrar Cliente"></ButtonMenu>
+                <ButtonMenu text="Cadastrar Funcionário"></ButtonMenu>
+                <ButtonMenu text="Cadastrar Produtos"></ButtonMenu>
+                <ButtonMenu text="Cadastrar Fornecedor"></ButtonMenu>
+                <ButtonMenu text="Realizar Serviço"></ButtonMenu>
+                <ButtonMenu text="Estornos"></ButtonMenu>
+                <ButtonMenu text="Relatórios"></ButtonMenu>
+                <ButtonMenu text="Editar Cadastro"></ButtonMenu>
             </ButtonContainer>
         </Container>
     );

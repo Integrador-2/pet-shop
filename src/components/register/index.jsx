@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, DivTitle, Title, FieldContainer, FieldLabel, Field, DivFields, DivButtonForm, ButtonForm} from './style';
+import { Container, DivTitle, Title, FieldContainer, FieldLabel, Field, DivFields, DivButtonForm, ButtonForm } from './style';
 
 const Register = () => {
     return (
@@ -10,32 +10,28 @@ const Register = () => {
             <DivFields>
                 <FieldContainer>
                     <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
+                    <Field />
                 </FieldContainer>
                 <FieldContainer>
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
+                    <FieldLabel>Data de Nascimento:</FieldLabel>
+                    <Field />
                 </FieldContainer>
                 <FieldContainer>
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
+                    <FieldLabel>Endereço:</FieldLabel>
+                    <Field />
                 </FieldContainer>
                 <FieldContainer>
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
-                </FieldContainer>
-                <FieldContainer>                    
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
+                    <FieldLabel>Gênero:</FieldLabel>
+                    <Field />
                 </FieldContainer>
                 <FieldContainer>
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field/>
+                    <FieldLabel>Telefone:</FieldLabel>
+                    <Field />
                 </FieldContainer>
             </DivFields>
             <DivButtonForm>
-                <ButtonForm>CADASTRAR</ButtonForm>
-                <ButtonForm>CANCELAR</ButtonForm>
+                <ButtonForm>Cadastrar</ButtonForm>
+                <ButtonForm>Cancelar</ButtonForm>
             </DivButtonForm>
         </Container>
     );
