@@ -1,33 +1,24 @@
 import React from "react";
 import { Container, DivTitle, Title, FieldContainer, FieldLabel, Field, DivFields, DivButtonForm, ButtonForm } from './style';
+import {fields} from '../../data/index';
 
-const Register = () => {
+const Register = ({origin, title}) => {    
+    console.log(fields);
+    // let allFields = JSON.parse(fields);    
     return (
         <Container>
             <DivTitle>
-                <Title>Preencha todos os campos para realizar o cadastro:</Title>
+                <Title>{title}</Title>
             </DivTitle>
             <DivFields>
-                <FieldContainer>
-                    <FieldLabel>Nome Completo:</FieldLabel>
-                    <Field />
-                </FieldContainer>
-                <FieldContainer>
-                    <FieldLabel>Data de Nascimento:</FieldLabel>
-                    <Field />
-                </FieldContainer>
-                <FieldContainer>
-                    <FieldLabel>Endereço:</FieldLabel>
-                    <Field />
-                </FieldContainer>
-                <FieldContainer>
-                    <FieldLabel>Gênero:</FieldLabel>
-                    <Field />
-                </FieldContainer>
-                <FieldContainer>
-                    <FieldLabel>Telefone:</FieldLabel>
-                    <Field />
-                </FieldContainer>
+                {
+                    fields.map((item, index) => item.origin == origin &&
+                        <FieldContainer>                            
+                            <FieldLabel>{item.label}</FieldLabel>
+                            <Field id={item.id}/>                                                    
+                        </FieldContainer>
+                    )
+                }
             </DivFields>
             <DivButtonForm>
                 <ButtonForm>Cadastrar</ButtonForm>
