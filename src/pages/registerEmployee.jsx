@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Register from './components/register';
+import Register from '../components/register';
 
-const registerEmployee = () => {
+const RegisterEmployee = () => {
     return (
-        <Register origin="employee" title="Para cadastrar o funcionário, preencha todos os campos"/>
+        <Register origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
     );
 }
 
-export default registerEmployee;
+export default RegisterEmployee;

@@ -3,12 +3,13 @@ import { Container, ButtonContainer } from './style';
 import ButtonMenu from '../buttonMenu';
 
 const GroupButtons = () => {
+
     return (
         <Container>
             <ButtonContainer>
-                <ButtonMenu text="Cadastrar Cliente"></ButtonMenu>
-                <ButtonMenu text="Cadastrar Funcionário"></ButtonMenu>
-                <ButtonMenu text="Cadastrar Produtos"></ButtonMenu>
+                <ButtonMenu origin="client" text="Cadastrar Cliente"></ButtonMenu>
+                <ButtonMenu origin="employee" text="Cadastrar Funcionário"></ButtonMenu>
+                <ButtonMenu origin="product" text="Cadastrar Produtos"></ButtonMenu>
                 <ButtonMenu text="Cadastrar Fornecedor"></ButtonMenu>
                 <ButtonMenu text="Realizar Serviço"></ButtonMenu>
                 <ButtonMenu text="Estornos"></ButtonMenu>

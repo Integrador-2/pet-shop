@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Register from './components/register';
+import Register from '../components/register';
 
-const registerProduct = () => {
+const RegisterProduct = () => {
     return (
-        <Register origin="product" title="Para cadastrar o produto, preencha todos os campos"/>
+        <Register origin="product" title="Para cadastrar o produto, preencha todos os campos" />
     );
 }
 
-export default registerProduct;
+export default RegisterProduct;

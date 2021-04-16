@@ -1,9 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
+
+import pageContext from "./context/context";
 
 import GroupButtons from './components/groupButtons';
-import registerEmployee from './pages/registerEmployee';
-import registerProduct from './pages/registerProduct';
-import registerClient from './pages/registerClient';
+import RegisterEmployee from './pages/registerEmployee';
+import RegisterProduct from './pages/registerProduct';
+import RegisterClient from './pages/registerClient';
 
 import './styles/global.css';
 
@@ -11,13 +13,20 @@ function App() {
   const [actualPage, setActualPage] = useState('client');
 
   return (
-    <>
+    <pageContext.Provider value={{
+      setActualPage
+    }}>
       <GroupButtons />
-      {
-        actualPage == 'client' && 
-          
-      }
-    </>
+      {actualPage === 'client' && (
+        <RegisterClient />
+      )}
+      {actualPage === 'employee' && (
+        <RegisterEmployee />
+      )}
+      {actualPage === 'product' && (
+        <RegisterProduct />
+      )}
+    </pageContext.Provider>
   );
 }
 

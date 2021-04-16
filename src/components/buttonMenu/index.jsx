@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import {Btn} from './style';
+import pageContext from "../../context/context";
 
-const ButtonMenu = ({text}) => {
+import { Btn } from './style';
+
+
+const ButtonMenu = ({ text, origin }) => {
+
+    const { setActualPage } = useContext(pageContext);
+
+    const changePage = (page) => {
+        setActualPage(page);
+    }
+
+
     return (
-        <Btn>{text}</Btn>
+        <Btn onClick={() => { changePage(origin) }}>{text}</Btn>
     );
 }
 

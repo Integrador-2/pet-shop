@@ -41,6 +41,17 @@ export const Field = styled.input`
     border-color: black;
 `;
 
+export const Select = styled.select`
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    border-color: black;
+`;
+
+export const Option = styled.option`
+    border-radius: 20px;
+`;
+
 export const DivButtonForm = styled.div`
     display: flex;
     justify-content: center;
