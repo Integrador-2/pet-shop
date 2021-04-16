@@ -6,6 +6,9 @@ import GroupButtons from './components/groupButtons';
 import RegisterEmployee from './pages/registerEmployee';
 import RegisterProduct from './pages/registerProduct';
 import RegisterClient from './pages/registerClient';
+import RegisterSuplier from './pages/registerSuplier';
+import RegisterService from './pages/registerService';
+import RegisterReversal from './pages/registerReversal';
 
 import './styles/global.css';
 
@@ -25,6 +28,15 @@ function App() {
       )}
       {actualPage === 'product' && (
         <RegisterProduct />
+      )}
+      {actualPage === 'suplier' && (
+        <RegisterSuplier/>
+      )}
+      {actualPage === 'service' && (
+        <RegisterService/>
+      )}
+      {actualPage === 'reversal' && (
+        <RegisterReversal/>
       )}
     </pageContext.Provider>
   );

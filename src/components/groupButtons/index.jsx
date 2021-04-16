@@ -10,9 +10,9 @@ const GroupButtons = () => {
                 <ButtonMenu origin="client" text="Cadastrar Cliente"></ButtonMenu>
                 <ButtonMenu origin="employee" text="Cadastrar Funcionário"></ButtonMenu>
                 <ButtonMenu origin="product" text="Cadastrar Produtos"></ButtonMenu>
-                <ButtonMenu text="Cadastrar Fornecedor"></ButtonMenu>
-                <ButtonMenu text="Realizar Serviço"></ButtonMenu>
-                <ButtonMenu text="Estornos"></ButtonMenu>
+                <ButtonMenu origin="suplier" text="Cadastrar Fornecedor"></ButtonMenu>
+                <ButtonMenu origin="service" text="Realizar Serviço"></ButtonMenu>
+                <ButtonMenu origin="reversal" text="Estornos"></ButtonMenu>
                 <ButtonMenu text="Relatórios"></ButtonMenu>
                 <ButtonMenu text="Editar Cadastro"></ButtonMenu>
             </ButtonContainer>

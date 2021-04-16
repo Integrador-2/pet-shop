@@ -19,7 +19,7 @@ export const Title = styled.span`
 export const DivFields = styled.div`
     display: grid;
     grid-template-columns: 500px 500px;
-    grid-template-rows: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px 120px;
     justify-content: center;
     margin-top: 100px;
 `;
@@ -64,4 +64,10 @@ export const ButtonForm = styled.button`
     font-size: 15pt;
     background: var(--gradient);
     margin: 45px;
+`;
+
+export const ContainerList = styled.div`
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 120px 120px 120px 400px;
 `;
