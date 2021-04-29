@@ -11,6 +11,7 @@
     --purple:  #C7C3E1;
     --green: #9AE5D6;
     --greenButton: #BCE5EF;
+    --opacity: rgba(0,0,0,0.4);
 }
 
 @media(max-width: 1080px) {

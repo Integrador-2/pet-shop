@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import pageContext from "../../context/context";
+
 import {
     Container, DivTitle, Title, FieldContainer, FieldLabel,
-    Field, DivFields, DivButtonForm, ButtonForm, Select, Option
+    Field, DivFields, DivButtonForm, ButtonForm, Select, Option,
+    ProductsListContainer, ProductsListButtonsContainer,
+    ProductsList, Line, Cell, HeadCell, ProductListDiv
 } from './style';
 import { fields } from '../../data/index';
 
 const Register = ({ origin, title }) => {
-    console.log(fields);
-    // let allFields = JSON.parse(fields);
+    const { setShowModal } = useContext(pageContext);
+    const showModal = () => {
+        setShowModal('flex');
+    }
+
     return (
         <Container>
             <DivTitle>
@@ -31,6 +39,22 @@ const Register = ({ origin, title }) => {
                     )
                 }
             </DivFields>
+            <ProductsListContainer>
+                <ProductsListButtonsContainer>
+                    <ButtonForm onClick={() => showModal()}>Inserir</ButtonForm>
+                    <ButtonForm onClick={() => showModal()}>Editar</ButtonForm>
+                    <ButtonForm>Remover</ButtonForm>
+                </ProductsListButtonsContainer>
+                <ProductListDiv>
+                    <ProductsList>
+                        <Line>
+                            <HeadCell width="200px">Código</HeadCell>
+                            <HeadCell width="600px">Nome</HeadCell>
+                            <HeadCell width="200px">Quantidade</HeadCell>
+                        </Line>
+                    </ProductsList>
+                </ProductListDiv>
+            </ProductsListContainer>
             <DivButtonForm>
                 <ButtonForm>Cadastrar</ButtonForm>
                 <ButtonForm>Cancelar</ButtonForm>

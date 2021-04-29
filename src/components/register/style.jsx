@@ -19,9 +19,9 @@ export const Title = styled.span`
 export const DivFields = styled.div`
     display: grid;
     grid-template-columns: 500px 500px;
-    grid-template-rows: 120px 120px 120px 120px;
+    grid-template-rows: 100px 100px 100px 100px;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 25px;
 `;
 
 export const FieldContainer = styled.div`
@@ -64,10 +64,52 @@ export const ButtonForm = styled.button`
     font-size: 15pt;
     background: var(--gradient);
     margin: 45px;
+
+    &:hover {
+        color: red;
+        opacity: 0.8;
+    }
 `;
 
 export const ContainerList = styled.div`
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 120px 120px 120px 400px;
+`;
+
+export const ProductsListContainer = styled.div`
+    display: grid;
+    grid-template-rows: 100px 200px;
+    justify-content: center;
+`;
+
+export const ProductsListButtonsContainer = styled.div`
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+`;
+
+export const ProductListDiv = styled.div`
+    margin-top: 15px;
+    background: var(--purple);
+    height: 200px;
+`;
+
+export const ProductsList = styled.table`
+    border: solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+`;
+
+export const Line = styled.tr`
+    border: solid;
+`;
+
+export const Cell = styled.td`
+    border: solid;
+`;
+
+export const HeadCell = styled.th`
+    border: solid;
+    width: ${props => props.width};
 `;
