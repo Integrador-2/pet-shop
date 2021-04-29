@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import pageContext from "../../context/context";
 
@@ -12,31 +12,45 @@ import Image from './confirme.svg';
 const Modal = ({ showModal }) => {
 
     const { setShowModal } = useContext(pageContext);
+    const [ code, setCode ] = useState('');
+    const [ name, setName ] = useState('');
     const hideModal = () => {
         setShowModal('none');
+    }    
+    const setProduct = (code) => {
+        if (code) {
+            products.map((item) => {
+                if (item.code === code) {
+                    setCode(item.code);
+                    setName(item.name);
+                }
+            });
+        }
     }
+    const doNothing = () => {
 
+    }
     return (
-        <Container display={showModal}>
-            <ModalScreen>
+        <Container display={showModal} onClick={() => hideModal()}>
+            <ModalScreen onClick={() => doNothing()}>
                 <FilterContainer>
                     <Filter width="100px">
                         <Label>Código</Label>
-                        <Field />
+                        <Field value={code}/>
                     </Filter>
                     <Filter>
                         <Label>Nome</Label>
-                        <Field />
+                        <Field value={name} />
                     </Filter>
                     <Filter width="100px">
                         <Label>Quantidade</Label>
-                        <Field />
+                        <Field value='0' />
                     </Filter>
                     <Button onClick={() => hideModal()}>
                         <Img src={Image} />
                     </Button>
                 </FilterContainer>
-                <ProductsList>
+                <ProductsList>                    
                     <tbody>
                         <Line>
                             <HeadCell width="200px">Código</HeadCell>
@@ -44,15 +58,14 @@ const Modal = ({ showModal }) => {
                             <HeadCell width="150px">Quantidade</HeadCell>
                             <HeadCell width="100px">Preço</HeadCell>
                         </Line>
-                        {products.map((item, key) => {
-                            console.log(products);
+                        {products.map((item, index) =>                          
                             <Line>
-                                <Cell>item.code</Cell>
-                                <Cell>item.name</Cell>
-                                <Cell>item.quantity</Cell>
-                                <Cell>item.price</Cell>
+                                <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.code}</Cell>
+                                <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.name}</Cell>
+                                <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.quantity}</Cell>
+                                <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.price}</Cell>
                             </Line>
-                        })}
+                        )}                    
                     </tbody>
                 </ProductsList>
             </ModalScreen>

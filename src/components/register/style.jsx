@@ -103,6 +103,11 @@ export const ProductsList = styled.table`
 
 export const Line = styled.tr`
     border: solid;
+
+    &:hover {
+        background: var(--green);
+        cursor: pointer;
+    }
 `;
 
 export const Cell = styled.td`

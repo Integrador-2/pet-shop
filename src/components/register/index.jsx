@@ -46,13 +46,15 @@ const Register = ({ origin, title }) => {
                         <ButtonForm onClick={() => showModal()}>Editar</ButtonForm>
                         <ButtonForm>Remover</ButtonForm>
                     </ProductsListButtonsContainer>
-                    <ProductListDiv>
+                    <ProductListDiv>                        
                         <ProductsList>
-                            <Line>
-                                <HeadCell width="200px">Código</HeadCell>
-                                <HeadCell width="600px">Nome</HeadCell>
-                                <HeadCell width="200px">Quantidade</HeadCell>
-                            </Line>
+                            <tbody>
+                                <Line>
+                                    <HeadCell width="200px">Código</HeadCell>
+                                    <HeadCell width="600px">Nome</HeadCell>
+                                    <HeadCell width="200px">Quantidade</HeadCell>
+                                </Line>
+                            </tbody>
                         </ProductsList>
                     </ProductListDiv>
                 </ProductsListContainer>
