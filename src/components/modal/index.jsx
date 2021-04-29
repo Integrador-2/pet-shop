@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 import pageContext from "../../context/context";
 
+import { products } from '../../data/index';
+
 import { Container, ModalScreen, FilterContainer, Filter, Label, Field, Button, Img } from './style';
 import { ProductsList, HeadCell, Cell, Line } from '../register/style';
 
@@ -35,11 +37,23 @@ const Modal = ({ showModal }) => {
                     </Button>
                 </FilterContainer>
                 <ProductsList>
-                    <Line>
-                        <HeadCell width="200px">Código</HeadCell>
-                        <HeadCell width="600px">Nome</HeadCell>
-                        <HeadCell width="200px">Quantidade</HeadCell>
-                    </Line>
+                    <tbody>
+                        <Line>
+                            <HeadCell width="200px">Código</HeadCell>
+                            <HeadCell width="550px">Nome</HeadCell>
+                            <HeadCell width="150px">Quantidade</HeadCell>
+                            <HeadCell width="100px">Preço</HeadCell>
+                        </Line>
+                        {products.map((item, key) => {
+                            console.log(products);
+                            <Line>
+                                <Cell>item.code</Cell>
+                                <Cell>item.name</Cell>
+                                <Cell>item.quantity</Cell>
+                                <Cell>item.price</Cell>
+                            </Line>
+                        })}
+                    </tbody>
                 </ProductsList>
             </ModalScreen>
         </Container>

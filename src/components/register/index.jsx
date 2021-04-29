@@ -11,7 +11,7 @@ import {
 import { fields } from '../../data/index';
 
 const Register = ({ origin, title }) => {
-    const { setShowModal } = useContext(pageContext);
+    const { setShowModal, actualPage } = useContext(pageContext);
     const showModal = () => {
         setShowModal('flex');
     }
@@ -39,22 +39,24 @@ const Register = ({ origin, title }) => {
                     )
                 }
             </DivFields>
-            <ProductsListContainer>
-                <ProductsListButtonsContainer>
-                    <ButtonForm onClick={() => showModal()}>Inserir</ButtonForm>
-                    <ButtonForm onClick={() => showModal()}>Editar</ButtonForm>
-                    <ButtonForm>Remover</ButtonForm>
-                </ProductsListButtonsContainer>
-                <ProductListDiv>
-                    <ProductsList>
-                        <Line>
-                            <HeadCell width="200px">Código</HeadCell>
-                            <HeadCell width="600px">Nome</HeadCell>
-                            <HeadCell width="200px">Quantidade</HeadCell>
-                        </Line>
-                    </ProductsList>
-                </ProductListDiv>
-            </ProductsListContainer>
+            {actualPage === 'service' &&
+                <ProductsListContainer>
+                    <ProductsListButtonsContainer>
+                        <ButtonForm onClick={() => showModal()}>Inserir</ButtonForm>
+                        <ButtonForm onClick={() => showModal()}>Editar</ButtonForm>
+                        <ButtonForm>Remover</ButtonForm>
+                    </ProductsListButtonsContainer>
+                    <ProductListDiv>
+                        <ProductsList>
+                            <Line>
+                                <HeadCell width="200px">Código</HeadCell>
+                                <HeadCell width="600px">Nome</HeadCell>
+                                <HeadCell width="200px">Quantidade</HeadCell>
+                            </Line>
+                        </ProductsList>
+                    </ProductListDiv>
+                </ProductsListContainer>
+            }
             <DivButtonForm>
                 <ButtonForm>Cadastrar</ButtonForm>
                 <ButtonForm>Cancelar</ButtonForm>

@@ -230,3 +230,23 @@ export const fields = [{
     'type': 'textarea_min'
 }
 ];
+
+export const products = [{
+    'type': 'product',
+    'name': 'Ração Pedigree 1kg',
+    'code': '1',
+    'price': '10.00',
+    'quantity': '20'
+},{
+    'type': 'product',
+    'name': 'Osso de borracha',
+    'code': '2',
+    'price': '15.00',
+    'quantity': '3'
+},{
+    'type': 'service',
+    'name': 'Consulta',
+    'code': '3',
+    'price': '80.00',
+    'quantity': '0'
+}];

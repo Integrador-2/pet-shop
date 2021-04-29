@@ -21,7 +21,8 @@ function App() {
   return (
     <pageContext.Provider value={{
       setActualPage,
-      setShowModal
+      setShowModal,
+      actualPage
     }}>
       <Modal showModal={showModal} />
       <GroupButtons />
