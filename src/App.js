@@ -16,15 +16,11 @@ import './styles/global.css';
 function App() {
   const [actualPage, setActualPage] = useState('client');
 
-  const [showModal, setShowModal] = useState('none');
-
   return (
     <pageContext.Provider value={{
       setActualPage,
-      setShowModal,
       actualPage
     }}>
-      <Modal showModal={showModal} />
       <GroupButtons />
       {
         actualPage === 'client' && (
