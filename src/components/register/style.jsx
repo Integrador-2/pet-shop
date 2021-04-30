@@ -93,19 +93,26 @@ export const ProductListDiv = styled.div`
     margin-top: 15px;
     background: var(--purple);
     height: 200px;
+    border: solid;
+    border-collapse: collapse;
 `;
 
 export const ProductsList = styled.table`
-    border: solid;
     border-collapse: collapse;
     table-layout: fixed;
+    margin: -2px;
 `;
+
 
 export const Line = styled.tr`
     border: solid;
+    background: ${props => props.selected ? "var(--green)" : "none"};
+
+    & + tr:hover {
+        background: var(--green);
+    }
 
     &:hover {
-        background: var(--green);
         cursor: pointer;
     }
 `;

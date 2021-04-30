@@ -17,13 +17,18 @@ const Register = ({ origin, title }) => {
     const [showModal, setShowModal] = useState('none');
     const [saleProducts, setSaleProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState('');
+    const [operation, setOperation] = useState('');
 
-
-    const showItens = () => {
+    const showItens = (changeOperation) => {
+        setOperation(changeOperation);
         setShowModal('flex');
     }
 
     const setProduct = (code) => {
+        if (code === selectedProduct) {
+            setSelectedProduct('');
+            return;
+        }
         setSelectedProduct(code);
     }
 
@@ -33,7 +38,8 @@ const Register = ({ origin, title }) => {
             saleProducts,
             setSaleProducts,
             selectedProduct,
-            setShowModal
+            setShowModal,
+            operation
         }}>
             <Container>
                 <Modal showModal={showModal} />
@@ -61,8 +67,8 @@ const Register = ({ origin, title }) => {
                 {actualPage === 'service' &&
                     <ProductsListContainer>
                         <ProductsListButtonsContainer>
-                            <ButtonForm onClick={() => showItens()}>Inserir</ButtonForm>
-                            <ButtonForm onClick={() => showItens()}>Editar</ButtonForm>
+                            <ButtonForm onClick={() => showItens('insert')}>Inserir</ButtonForm>
+                            <ButtonForm onClick={() => showItens('edit')}>Editar</ButtonForm>
                             <ButtonForm>Remover</ButtonForm>
                         </ProductsListButtonsContainer>
                         <ProductListDiv>
@@ -70,15 +76,20 @@ const Register = ({ origin, title }) => {
                                 <tbody>
                                     <Line>
                                         <HeadCell width="200px">Código</HeadCell>
-                                        <HeadCell width="600px">Nome</HeadCell>
-                                        <HeadCell width="200px">Quantidade</HeadCell>
+                                        <HeadCell width="550px">Nome</HeadCell>
+                                        <HeadCell width="150px">Quantidade</HeadCell>
+                                        <HeadCell width="100px">Preço</HeadCell>
                                     </Line>
                                     {saleProducts.map((item) =>
-                                        <Line>
-                                            <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.code}</Cell>
-                                            <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.name}</Cell>
-                                            <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.quantity}</Cell>
-                                            <Cell id={item.code} onClick={() => setProduct(item.code)}>{item.price}</Cell>
+                                        <Line id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
+                                            <Cell id={item.code}>{item.code}</Cell>
+                                            <Cell id={item.code}>{item.name}</Cell>
+                                            <Cell id={item.code}>{item.quantity}</Cell>
+                                            <Cell id={item.code}
+                                                onClick={() => setProduct(item.code)}>
+                                                {(parseFloat(item.price))
+                                                    .toLocaleString('pt-BR',
+                                                        { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</Cell>
                                         </Line>
                                     )}
                                 </tbody>

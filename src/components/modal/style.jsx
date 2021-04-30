@@ -17,6 +17,7 @@ export const ModalScreen = styled.div`
     width: 50%;
     height: 50%;
     margin: auto;
+    padding: 10px;
     z-index: 2;
     border-radius: 15px;
     border-style: solid;
@@ -49,7 +50,7 @@ export const Field = styled.input`
 
 export const Button = styled.button`
     border-radius: 20px;
-    margin-top: 30px;
+    margin: 30px 0 0 5px;
     width: 30px;
     height: 30px;
     border-style: none;
@@ -57,6 +58,8 @@ export const Button = styled.button`
 `;
 
 export const Img = styled.img`
-    width: 100%;
-    height: 100%;
+    width: ${props => props.padding ? "105%" : "100%"};
+    height: ${props => props.padding ? "105%" : "100%"};
+
+    margin-top: ${props => props.padding ? "-1px" : "0"};
 `;
