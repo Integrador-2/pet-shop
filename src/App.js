@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import pageContext from "./context/context";
+import mainContext from "./context/context";
 
 import Modal from './components/modal';
 import GroupButtons from './components/groupButtons';
@@ -16,10 +16,26 @@ import './styles/global.css';
 function App() {
   const [actualPage, setActualPage] = useState('client');
 
+  const [alertTitle, setAlertTitle] = useState('');
+  const [alertType, setAlertType] = useState('');
+  const [alertText, setAlertText] = useState('');
+  const [showAlert, setShowAlert] = useState('none');
+  const [showModal, setShowModal] = useState('none');
+
   return (
-    <pageContext.Provider value={{
+    <mainContext.Provider value={{
       setActualPage,
-      actualPage
+      actualPage,
+      alertTitle,
+      setAlertTitle,
+      alertType,
+      setAlertType,
+      alertText,
+      setAlertText,
+      showAlert,
+      setShowAlert,
+      showModal,
+      setShowModal
     }}>
       <GroupButtons />
       {
@@ -52,7 +68,7 @@ function App() {
           <RegisterReversal />
         )
       }
-    </pageContext.Provider >
+    </mainContext.Provider >
   );
 }
 

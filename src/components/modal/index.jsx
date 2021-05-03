@@ -22,8 +22,7 @@ const Modal = ({ showModal }) => {
         if (operation === 'edit' && selectedProduct) {
             produce(saleProducts, draft => {
                 draft.map((item) => {
-                    if (item.code === selectedProduct) {
-                        console.log('teste');
+                    if (item.code === selectedProduct) {                        
                         setCode(item.code);
                         setName(item.name);
                         setQuantity(item.quantity);
@@ -34,43 +33,46 @@ const Modal = ({ showModal }) => {
     }, [selectedProduct, operation])
 
     const changeSalesProducts = () => {
-        setSaleProducts(produce(saleProducts, draft => {
-            let containSale = false;
-            draft.map((item) => {
-                if (item.code === code) {
-                    item.quantity = setProductSaleQuantity(item.quantity, 'edit');
-                    products.map((product) => {
-                        if (product.code === code) {
-                            containSale = true;
-                            if (parseInt(product.quantity) < parseInt(item.quantity)) {
-                                item.quantity = parseInt(item.quantity) - parseInt(quantity);
-                                alert('A2quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+        if (quantity && quantity > 0) {
+            setSaleProducts(produce(saleProducts, draft => {
+                let containSale = false;
+                draft.map((item) => {
+                    if (item.code === code) {
+                        item.quantity = setProductSaleQuantity(item.quantity, 'edit');
+                        products.map((product) => {
+                            if (product.code === code) {
+                                containSale = true;
+                                if (parseInt(product.quantity) < parseInt(item.quantity)) {
+                                    item.quantity = parseInt(item.quantity) - parseInt(quantity);
+                                    alert('A2quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+                                    return;
+                                }
+                                clearStates();
+                                setShowModal('none');
+                            }
+                        });
+                    }
+                });
+                if (containSale === false) {
+                    products.map((item) => {
+                        if (item.code === code) {
+                            const product = { ...item };
+                            if (parseInt(quantity) > parseInt(product.quantity)) {
+                                alert('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
                                 return;
                             }
+                            product.quantity = setProductSaleQuantity(product.quantity, 'insert');
+                            product.price = parseFloat(product.price) * product.quantity;                        
+                            draft.push(product);
                             clearStates();
                             setShowModal('none');
                         }
-                    });
+                    })
                 }
-            });
-            if (containSale === false) {
-                products.map((item) => {
-                    if (item.code === code) {
-                        const product = { ...item };
-                        if (parseInt(quantity) > parseInt(product.quantity)) {
-                            alert('A1 quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
-                            return;
-                        }
-                        product.quantity = setProductSaleQuantity(product.quantity, 'insert');
-                        product.price = parseFloat(product.price) * product.quantity;
-                        console.log(product);
-                        draft.push(product);
-                        clearStates();
-                        setShowModal('none');
-                    }
-                })
-            }
-        }));
+            }));
+        } else {
+            alert('Defina a quantidade antes de confirmar!');
+        }
     }
 
     const hideModal = () => {
@@ -89,8 +91,7 @@ const Modal = ({ showModal }) => {
             products.map((item) => {
                 if (item.code === id) {
                     setCode(item.code);
-                    setName(item.name);
-                    console.log(id + ' - ' + name + ' - ' + code);
+                    setName(item.name);                    
                 }
             });
         }

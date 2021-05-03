@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
-import pageContext from "../../context/context";
+import mainContext from "../../context/context";
 
 import { Btn } from './style';
 
 
 const ButtonMenu = ({ text, origin }) => {
 
-    const { setActualPage } = useContext(pageContext);
+    const { setActualPage } = useContext(mainContext);
 
     const changePage = (page) => {
         setActualPage(page);

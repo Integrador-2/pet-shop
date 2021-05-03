@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 
-import pageContext from "../../context/context";
+import produce from "immer";
+
+import mainContext from "../../context/context";
 import salesContext from "../../context/salesContext";
 
 import {
@@ -10,18 +12,27 @@ import {
     ProductsList, Line, Cell, HeadCell, ProductListDiv
 } from './style';
 import Modal from '../modal/index';
+import Alert from '../alert/index';
+
 import { fields } from '../../data/index';
 
 const Register = ({ origin, title }) => {
-    const { actualPage } = useContext(pageContext);
-    const [showModal, setShowModal] = useState('none');
+    const { actualPage, setShowAlert, showAlert, showModal, setShowModal, setAlertTitle,
+        setAlertText, setAlertType } = useContext(mainContext);    
     const [saleProducts, setSaleProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState('');
-    const [operation, setOperation] = useState('');
+    const [operation, setOperation] = useState('');    
 
     const showItens = (changeOperation) => {
-        setOperation(changeOperation);
-        setShowModal('flex');
+        if ((changeOperation === 'edit' && selectedProduct && selectedProduct > 0) || changeOperation === 'insert') {
+            setOperation(changeOperation);
+            setShowModal('flex');
+        } else {
+            setAlertTitle('Não é possível continuar');
+            setAlertText('Selecione um produto para fazer a edição!');
+            setAlertType('alert');
+            setShowAlert('flex');
+        }
     }
 
     const setProduct = (code) => {
@@ -33,6 +44,16 @@ const Register = ({ origin, title }) => {
     }
 
 
+    const removeProduct = () => {        
+        setSaleProducts(produce(saleProducts, draft => {
+            draft.map((item, code) => {
+                if (item.code === selectedProduct) {                    
+                    draft.splice(code, 1);                    
+                }
+            })
+        }));        
+    }
+
     return (
         <salesContext.Provider value={{
             saleProducts,
@@ -42,6 +63,7 @@ const Register = ({ origin, title }) => {
             operation
         }}>
             <Container>
+                <Alert showAlert={showAlert} />
                 <Modal showModal={showModal} />
                 <DivTitle>
                     <Title>{title}</Title>
@@ -69,7 +91,7 @@ const Register = ({ origin, title }) => {
                         <ProductsListButtonsContainer>
                             <ButtonForm onClick={() => showItens('insert')}>Inserir</ButtonForm>
                             <ButtonForm onClick={() => showItens('edit')}>Editar</ButtonForm>
-                            <ButtonForm>Remover</ButtonForm>
+                            <ButtonForm onClick={() => removeProduct()}>Remover</ButtonForm>
                         </ProductsListButtonsContainer>
                         <ProductListDiv>
                             <ProductsList>
