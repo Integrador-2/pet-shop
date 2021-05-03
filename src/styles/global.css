@@ -35,8 +35,8 @@
 
 body {
     background: var(--purple);
-    background-image: url("./background.png");
-    background-size: 80%;
+    background-image: url("../assets/background.png");
+    background-size: 80% 95%;
     background-repeat: no-repeat;
     background-position-y: 50%;
     background-position-x: 50%;

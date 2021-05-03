@@ -2,18 +2,22 @@ import React, { useContext, useState, useEffect } from "react";
 import produce from "immer";
 
 import saleContext from "../../context/salesContext";
+import mainContext from "../../context/context";
 
 import { products } from '../../data/index';
 
 import { Container, ModalScreen, FilterContainer, Filter, Label, Field, Button, Img } from './style';
 import { ProductsList, HeadCell, Cell, Line } from '../register/style';
 
-import Confirm from './confirme.svg';
-import Exit from './exit.png';
+import Alert from "../alert/index";
+
+import Confirm from '../../assets/confirme.svg';
+import Exit from '../../assets/exit.png';
 
 const Modal = ({ showModal }) => {
 
-    const { setShowModal, saleProducts, setSaleProducts, selectedProduct, operation } = useContext(saleContext);
+    const { setShowModal, saleProducts, setSaleProducts, selectedProduct, operation } = useContext(saleContext);    
+    const { setShowAlert, showAlert, setAlertTitle, setAlertText, setAlertType } = useContext(mainContext);     
     const [code, setCode] = useState('');
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(0);
@@ -21,7 +25,7 @@ const Modal = ({ showModal }) => {
     useEffect(() => {
         if (operation === 'edit' && selectedProduct) {
             produce(saleProducts, draft => {
-                draft.map((item) => {
+                draft.forEach((item) => {
                     if (item.code === selectedProduct) {                        
                         setCode(item.code);
                         setName(item.name);
@@ -30,21 +34,24 @@ const Modal = ({ showModal }) => {
                 })
             });
         }
-    }, [selectedProduct, operation])
+    }, [selectedProduct, operation, saleProducts])
 
     const changeSalesProducts = () => {
         if (quantity && quantity > 0) {
             setSaleProducts(produce(saleProducts, draft => {
                 let containSale = false;
-                draft.map((item) => {
+                draft.forEach((item) => {
                     if (item.code === code) {
                         item.quantity = setProductSaleQuantity(item.quantity, 'edit');
-                        products.map((product) => {
+                        products.forEach((product) => {
                             if (product.code === code) {
                                 containSale = true;
                                 if (parseInt(product.quantity) < parseInt(item.quantity)) {
                                     item.quantity = parseInt(item.quantity) - parseInt(quantity);
-                                    alert('A2quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+                                    setAlertType('alert');
+                                    setAlertText('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+                                    setAlertTitle('Não é possível continuar.');
+                                    setShowAlert('flex');
                                     return;
                                 }
                                 clearStates();
@@ -54,11 +61,14 @@ const Modal = ({ showModal }) => {
                     }
                 });
                 if (containSale === false) {
-                    products.map((item) => {
+                    products.forEach((item) => {
                         if (item.code === code) {
                             const product = { ...item };
                             if (parseInt(quantity) > parseInt(product.quantity)) {
-                                alert('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+                                setAlertType('alert');
+                                setAlertText('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
+                                setAlertTitle('Não é possível continuar.');
+                                setShowAlert('flex');
                                 return;
                             }
                             product.quantity = setProductSaleQuantity(product.quantity, 'insert');
@@ -88,7 +98,7 @@ const Modal = ({ showModal }) => {
 
     const setProduct = (id) => {
         if (id) {
-            products.map((item) => {
+            products.forEach((item) => {
                 if (item.code === id) {
                     setCode(item.code);
                     setName(item.name);                    
@@ -109,6 +119,7 @@ const Modal = ({ showModal }) => {
 
     return (
         <Container display={showModal}>
+            <Alert showAlert={showAlert} />
             <ModalScreen>
                 <FilterContainer>
                     <Filter width="100px">

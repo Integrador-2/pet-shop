@@ -44,12 +44,19 @@ const Register = ({ origin, title }) => {
     }
 
 
-    const removeProduct = () => {        
+    const removeProduct = () => {
+        if (!selectedProduct) {
+            setAlertTitle('Não é possível continuar.');
+            setAlertType('alert');
+            setAlertText('Para remover algum item da lista, selecione o mesmo primeiro.');
+            setShowAlert('flex');
+        }
         setSaleProducts(produce(saleProducts, draft => {
-            draft.map((item, code) => {
+            draft.forEach((item, code) => {
                 if (item.code === selectedProduct) {                    
                     draft.splice(code, 1);                    
                 }
+                setSelectedProduct('');
             })
         }));        
     }
@@ -71,13 +78,13 @@ const Register = ({ origin, title }) => {
                 <DivFields>
                     {
                         fields.map((item, index) => item.origin === origin &&
-                            <FieldContainer>
+                            <FieldContainer key={index}>
                                 <FieldLabel>{item.label}</FieldLabel>
                                 {item.type !== 'select' ? (
                                     <Field id={item.id} type={item.type} />
                                 ) : (
                                         <Select id={item.id}>
-                                            {item.options.map((value, key) =>
+                                            {item.options.forEach((value, key) =>
                                                 <Option>{value.value}</Option>
                                             )}
                                         </Select>
@@ -102,8 +109,8 @@ const Register = ({ origin, title }) => {
                                         <HeadCell width="150px">Quantidade</HeadCell>
                                         <HeadCell width="100px">Preço</HeadCell>
                                     </Line>
-                                    {saleProducts.map((item) =>
-                                        <Line id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
+                                    {saleProducts.map((item, index) =>
+                                        <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
                                             <Cell id={item.code}>{item.code}</Cell>
                                             <Cell id={item.code}>{item.name}</Cell>
                                             <Cell id={item.code}>{item.quantity}</Cell>

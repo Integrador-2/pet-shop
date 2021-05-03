@@ -2,15 +2,22 @@ import React, { useContext } from "react";
 
 import mainContext from "../../context/context";
 
-import { Container } from '../modal/style';
-import { Modal, Button, ButtonContainer, TextContainer } from './style';
+import { Img } from '../modal/style';
+import { Modal, Button, ButtonContainer, TextContainer, InsideButton, ImageContainer, AlertContainer } from './style';
+
+import Confirm from '../../assets/confirme.svg';
+import Exit from '../../assets/exit.png';
 
 const Alert = ({showAlert}) => {
 
-    const {alertTitle, alertText, alertType, InsideButton} = useContext(mainContext);
+    const {alertTitle, alertText, alertType, setShowAlert} = useContext(mainContext);
+
+    const confirmButton = () => {
+        setShowAlert('none');
+    }
 
     return (
-        <Container display={showAlert}>
+        <AlertContainer display={showAlert}>
             <Modal>
                 <TextContainer>
                     <span><b>{alertTitle}</b></span>
@@ -20,13 +27,19 @@ const Alert = ({showAlert}) => {
                 </TextContainer>                
                 {alertType === 'confirm' &&
                     <ButtonContainer>
-                        <Button>
+                        <Button onClick={() => confirmButton()}>
                             <InsideButton>
+                                <ImageContainer>
+                                    <Img src={Confirm} />                                    
+                                </ImageContainer>
                                 Confirmar
                             </InsideButton>
                         </Button>
                         <Button>
                             <InsideButton>
+                                <ImageContainer>
+                                    <Img src={Exit} />
+                                </ImageContainer>
                                 Cancelar
                             </InsideButton>
                         </Button>
@@ -34,15 +47,18 @@ const Alert = ({showAlert}) => {
                 }                
                 {alertType === 'alert' &&
                     <ButtonContainer>
-                        <Button>
+                        <Button onClick={() => confirmButton()}>
                             <InsideButton>
+                                <ImageContainer>
+                                    <Img src={Confirm} /> 
+                                </ImageContainer>
                                 Confirmar
                             </InsideButton>
                         </Button>
                     </ButtonContainer>
                 }
             </Modal>
-        </Container>
+        </AlertContainer>
     );
 }
 

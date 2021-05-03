@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import mainContext from "./context/context";
 
-import Modal from './components/modal';
 import GroupButtons from './components/groupButtons';
 import RegisterEmployee from './pages/registerEmployee';
 import RegisterProduct from './pages/registerProduct';
