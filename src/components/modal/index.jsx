@@ -17,7 +17,7 @@ import Exit from '../../assets/exit.png';
 const Modal = ({ showModal }) => {
 
     const { setShowModal, saleProducts, setSaleProducts, selectedProduct, operation } = useContext(saleContext);    
-    const { setShowAlert, showAlert, setAlertTitle, setAlertText, setAlertType } = useContext(mainContext);     
+    const { setShowAlert, showAlert, setAlertTitle, setAlertText, setAlertType, setAlertConfig } = useContext(mainContext);     
     const [code, setCode] = useState('');
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(0);
@@ -48,10 +48,12 @@ const Modal = ({ showModal }) => {
                                 containSale = true;
                                 if (parseInt(product.quantity) < parseInt(item.quantity)) {
                                     item.quantity = parseInt(item.quantity) - parseInt(quantity);
-                                    setAlertType('alert');
-                                    setAlertText('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
-                                    setAlertTitle('Não é possível continuar.');
-                                    setShowAlert('flex');
+                                    setAlertConfig({
+                                        'type' : 'alert',
+                                        'title' : 'Não é possível continuar',
+                                        'text' : 'A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.',
+                                        'show' : 'flex'
+                                      })
                                     return;
                                 }
                                 clearStates();

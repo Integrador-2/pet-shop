@@ -15,6 +15,12 @@ import './styles/global.css';
 function App() {
   const [actualPage, setActualPage] = useState('client');
 
+  const [alertConfig, setAlertConfig] = useState({
+    'type' : '',
+    'title' : '',
+    'text' : '',
+    'show' : 'none'
+  });
   const [alertTitle, setAlertTitle] = useState('');
   const [alertType, setAlertType] = useState('');
   const [alertText, setAlertText] = useState('');
@@ -34,7 +40,9 @@ function App() {
       showAlert,
       setShowAlert,
       showModal,
-      setShowModal
+      setShowModal,
+      setAlertConfig,
+      alertConfig
     }}>
       <GroupButtons />
       {

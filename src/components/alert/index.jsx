@@ -10,22 +10,27 @@ import Exit from '../../assets/exit.png';
 
 const Alert = ({showAlert}) => {
 
-    const {alertTitle, alertText, alertType, setShowAlert} = useContext(mainContext);
+    const {alertConfig, setAlertConfig} = useContext(mainContext);
 
     const confirmButton = () => {
-        setShowAlert('none');
+        setAlertConfig({
+            'type' : '',
+            'title' : '',
+            'text' : '',
+            'show' : 'none'
+          });
     }
 
     return (
-        <AlertContainer display={showAlert}>
+        <AlertContainer display={alertConfig.show}>
             <Modal>
                 <TextContainer>
-                    <span><b>{alertTitle}</b></span>
+                    <span><b>{alertConfig.title}</b></span>
                 </TextContainer>
                 <TextContainer>
-                    <span>{alertText}</span>
+                    <span>{alertConfig.text}</span>
                 </TextContainer>                
-                {alertType === 'confirm' &&
+                {alertConfig.type === 'confirm' &&
                     <ButtonContainer>
                         <Button onClick={() => confirmButton()}>
                             <InsideButton>
@@ -45,7 +50,7 @@ const Alert = ({showAlert}) => {
                         </Button>
                     </ButtonContainer>
                 }                
-                {alertType === 'alert' &&
+                {alertConfig.type === 'alert' &&
                     <ButtonContainer>
                         <Button onClick={() => confirmButton()}>
                             <InsideButton>

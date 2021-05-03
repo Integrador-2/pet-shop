@@ -18,7 +18,7 @@ import { fields } from '../../data/index';
 
 const Register = ({ origin, title }) => {
     const { actualPage, setShowAlert, showAlert, showModal, setShowModal, setAlertTitle,
-        setAlertText, setAlertType } = useContext(mainContext);    
+        setAlertText, setAlertType, setAlertConfig } = useContext(mainContext);    
     const [saleProducts, setSaleProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState('');
     const [operation, setOperation] = useState('');    
@@ -28,10 +28,12 @@ const Register = ({ origin, title }) => {
             setOperation(changeOperation);
             setShowModal('flex');
         } else {
-            setAlertTitle('Não é possível continuar');
-            setAlertText('Selecione um produto para fazer a edição!');
-            setAlertType('alert');
-            setShowAlert('flex');
+            setAlertConfig({
+                'type' : 'alert',
+                'title' : 'Não é possível continuar',
+                'text' : 'Selecione um produto para fazer a edição!',
+                'show' : 'flex'
+              })
         }
     }
 
