@@ -250,20 +250,21 @@ export const fields = [{
 ];
 
 export const TableColumns = [{
-    'origin': 'sales',
-    'columns': [
-        { 'value': 'Código' },
-        { 'value': 'Nome' },
-        { 'value': 'Quantidade' },
-        { 'value': 'Preço' }
-    ],
+    'origin': 'reversal',
+    'code': '1',
+    'name': 'Estorno de Numero 0001',
 }, {
-    'origin': 'report',
-    'columns': [
-        { 'value': 'Código' },
-        { 'value': 'Nome' },
-        { 'value': 'Detalhes' }
-    ]
+    'origin': 'reversal',
+    'code': '2',
+    'name': 'Estorno de Numero 0002',
+}, {
+    'origin': 'reversal',
+    'code': '3',
+    'name': 'Estorno de Numero 0003',
+}, {
+    'origin': 'reversal',
+    'code': '4',
+    'name': 'Estorno de Numero 0004',
 }
 ];
 

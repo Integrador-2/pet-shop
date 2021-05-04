@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Btn } from "../buttonMenu/style";
+
 export const Container = styled.div`
     height: 100%;
     width: 100%;
@@ -155,4 +157,16 @@ export const ImageContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: 5px 0 0 0;
+`;
+
+export const TableButton = styled(Btn)`
+    width: 100px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+
+    & label {
+        font-size: 10pt;
+    }
 `;

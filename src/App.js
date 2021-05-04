@@ -10,11 +10,12 @@ import RegisterSuplier from './pages/registerSuplier';
 import RegisterService from './pages/registerService';
 import RegisterReversal from './pages/registerReversal';
 import RegisterReport from './pages/registerReport';
+import Login from './pages/login';
 
 import './styles/global.css';
 
 function App() {
-  const [actualPage, setActualPage] = useState('client');
+  const [actualPage, setActualPage] = useState('login');
 
   const [alertConfig, setAlertConfig] = useState({
     'type': '',
@@ -37,7 +38,13 @@ function App() {
       showAlert,
       setShowAlert
     }}>
-      <GroupButtons />
+      {
+        actualPage === 'login' ? (
+          <Login />
+        ) : (
+          <GroupButtons />
+        )
+      }
       {
         actualPage === 'client' && (
           <RegisterClient />

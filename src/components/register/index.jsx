@@ -10,12 +10,12 @@ import {
     Field, DivFields, DivButtonForm, ButtonForm, Select, Option,
     ProductsListContainer, ProductsListButtonsContainer,
     ProductsList, Line, Cell, HeadCell, ProductListDiv, TextAreaField,
-    Image, FileInput, FileInputContainer, ImageContainer
+    Image, FileInput, FileInputContainer, ImageContainer, TableButton
 } from './style';
 import Modal from '../modal/index';
 import Alert from '../alert/index';
 
-import { fields } from '../../data/index';
+import { fields, TableColumns } from '../../data/index';
 
 const Register = ({ origin, title }) => {
     const { actualPage, setShowAlert, showAlert, showModal, setShowModal,
@@ -181,6 +181,29 @@ const Register = ({ origin, title }) => {
                                                 {(parseFloat(item.price))
                                                     .toLocaleString('pt-BR',
                                                         { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</Cell>
+                                        </Line>
+                                    )}
+                                </tbody>
+                            </ProductsList>
+                        </ProductListDiv>
+                    </ProductsListContainer>
+                }
+                {actualPage === 'report' &&
+                    <ProductsListContainer>
+                        <ProductListDiv>
+                            <ProductsList>
+                                <tbody>
+                                    {/* <Line>
+                                        <HeadCell width="200px">Código</HeadCell>
+                                        <HeadCell width="550px">Nome</HeadCell>
+                                        <HeadCell width="130px">Quantidade</HeadCell>
+                                        <HeadCell width="100px">Preço</HeadCell>
+                                    </Line> */}
+                                    {TableColumns.map((item, index) =>
+                                        <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
+                                            <HeadCell width="200px" id={item.code}>{item.code}</HeadCell>
+                                            <HeadCell width="550px" id={item.code}>{item.name}</HeadCell>
+                                            <HeadCell width="130px" id={item.code}><TableButton><label>Detalhes</label></TableButton></HeadCell>
                                         </Line>
                                     )}
                                 </tbody>
