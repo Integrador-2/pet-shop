@@ -111,44 +111,44 @@ export const fields = [{
     'label': 'Imagem:',
     'id': 'image_product',
     'type': 'input'
-},{
+}, {
     'origin': 'suplier',
     'label': 'Nome do Fornecedor:',
     'id': 'name_suplier',
     'type': 'input'
-},{
+}, {
     'origin': 'suplier',
     'label': 'Entidade:',
     'id': 'entity_suplier',
     'type': 'select',
-    'options' : [
-        {'value': 'pet-shop'},
-        {'value': 'armazen'}
+    'options': [
+        { 'value': 'pet-shop' },
+        { 'value': 'armazen' }
     ]
-},{
+}, {
     'origin': 'suplier',
     'label': 'Endereço:',
     'id': 'address_suplier',
     'type': 'input'
-},{
+}, {
     'origin': 'suplier',
     'label': 'Telefone:',
     'id': 'phone_suplier',
     'type': 'input'
-},{
+}, {
     'origin': 'suplier',
     'label': 'E-mail:',
     'id': 'email_suplier',
     'type': 'input'
-},{
+}, {
 
     'origin': 'service',
     'label': 'Assistente:',
     'id': 'assistant_service',
     'type': 'select',
     'options': [
-        {'value': 'Nenhum'},
-        {'value': 'Rafael Eduardo Kepler'}
+        { 'value': 'Nenhum' },
+        { 'value': 'Rafael Eduardo Kepler' }
     ]
 }, {
     'origin': 'service',
@@ -156,80 +156,117 @@ export const fields = [{
     'id': 'vet_service',
     'type': 'select',
     'options': [
-        {'value': 'Nenhum'},
-        {'value': 'Rafael Eduardo Kepler'}
+        { 'value': 'Nenhum' },
+        { 'value': 'Rafael Eduardo Kepler' }
     ]
-},{
+}, {
     'origin': 'service',
     'label': 'Descrição:',
     'id': 'description_service',
-    'type': 'textarea'    
-},{
+    'type': 'textarea'
+}, {
     'origin': 'service',
     'label': 'Observações:',
     'id': 'obs_service',
-    'type': 'textarea'    
-},{
+    'type': 'textarea'
+}, {
     'origin': 'service',
     'label': 'Valor Total:',
     'id': 'total_value_service',
-    'type': 'input'    
-},{
+    'type': 'input'
+}, {
     'origin': 'service',
     'label': 'Forma de Pagamento:',
     'id': 'payment_service',
     'type': 'select',
     'options': [
-        {'value': 'Dinheiro'},
-        {'value': 'Cartão de Crédito'},
-        {'value': 'Pix'}
+        { 'value': 'Dinheiro' },
+        { 'value': 'Cartão de Crédito' },
+        { 'value': 'Pix' }
     ]
-},{
+}, {
     'origin': 'service',
     'label': 'Data de Entrada:',
     'id': 'entry_date_service',
-    'type': 'date'    
-},{
+    'type': 'date'
+}, {
     'origin': 'service',
     'label': 'Data de Saída:',
     'id': 'departure_date_service',
-    'type': 'date'    
-},{
+    'type': 'date'
+}, {
     'origin': 'service',
     'label': 'Data de Emissão:',
     'id': 'emission_date_service',
-    'type': 'date'    
-},{
+    'type': 'date'
+}, {
     'origin': 'service',
     'label': 'Cliente:',
     'id': 'client_service',
     'type': 'select',
     'options': [
-        {'value' : 'Rafael Eduardo Kepler'}
+        { 'value': 'Rafael Eduardo Kepler' }
     ]
-},{
+}, {
+    'origin': 'service',
+    'label': 'Imagem:',
+    'id': 'image_service',
+    'type': 'file'
+}, {
 
     'origin': 'reversal',
     'label': 'Nº do Serviço:',
     'id': 'service_reversal',
     'type': 'select',
     'options': [
-        {'value': '1'},
-        {'value': '2'},
-        {'value': '3'}
+        { 'value': '1' },
+        { 'value': '2' },
+        { 'value': '3' }
     ]
-},{
+}, {
     'origin': 'reversal',
     'label': 'Detalhes do Serviço:',
     'id': 'details_reversal',
-    'type': 'textarea'    
-},{
+    'type': 'textarea'
+}, {
     'origin': 'reversal',
     'label': 'Motivo do estorno:',
     'id': 'reason_reversal',
-    'type': 'textarea_min'
+    'type': 'textarea'
+}, {
+    'origin': 'report',
+    'label': 'Busca',
+    'id': 'search_report',
+    'type': 'select',
+    'options': [
+        { 'value': 'Clientes' },
+        { 'value': 'Funcionários' },
+        { 'value': 'Produtos' },
+        { 'value': 'Fornecedores' },
+        { 'value': 'Vendas/Serviços' },
+        { 'value': 'Estornos' }
+    ]
 }
 ];
+
+export const TableColumns = [{
+    'origin': 'sales',
+    'columns': [
+        { 'value': 'Código' },
+        { 'value': 'Nome' },
+        { 'value': 'Quantidade' },
+        { 'value': 'Preço' }
+    ],
+}, {
+    'origin': 'report',
+    'columns': [
+        { 'value': 'Código' },
+        { 'value': 'Nome' },
+        { 'value': 'Detalhes' }
+    ]
+}
+];
+
 
 export const products = [{
     'type': 'product',
@@ -237,13 +274,13 @@ export const products = [{
     'code': '1',
     'price': '10.00',
     'quantity': '20'
-},{
+}, {
     'type': 'product',
     'name': 'Osso de borracha',
     'code': '2',
     'price': '15.00',
     'quantity': '3'
-},{
+}, {
     'type': 'service',
     'name': 'Consulta',
     'code': '3',

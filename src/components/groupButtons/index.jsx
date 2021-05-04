@@ -13,7 +13,7 @@ const GroupButtons = () => {
                 <ButtonMenu origin="suplier" text="Cadastrar Fornecedor"></ButtonMenu>
                 <ButtonMenu origin="service" text="Realizar Serviço"></ButtonMenu>
                 <ButtonMenu origin="reversal" text="Estornos"></ButtonMenu>
-                <ButtonMenu text="Relatórios"></ButtonMenu>                
+                <ButtonMenu origin="report" text="Relatórios"></ButtonMenu>
             </ButtonContainer>
         </Container>
     );

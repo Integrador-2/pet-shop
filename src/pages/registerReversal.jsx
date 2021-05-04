@@ -1,10 +1,10 @@
 import React from 'react';
 
-import List from '../components/list';
+import Register from '../components/register/index';
 
 const RegisterReversal = () => {
     return (
-        <List origin="reversal" title="Para cadastrar um estorno, preencha todos os campos" />
+        <Register origin="reversal" title="Para cadastrar um estorno, preencha todos os campos" />
     );
 }
 

@@ -18,8 +18,7 @@ export const Title = styled.span`
 
 export const DivFields = styled.div`
     display: grid;
-    grid-template-columns: 500px 500px;
-    grid-template-rows: 100px 100px 100px 100px;
+    grid-template-columns: ${props => props.columns === 1 ? '50%' : '25% 25%'};
     justify-content: center;
     margin-top: 25px;
 `;
@@ -28,6 +27,7 @@ export const FieldContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
+    margin: 25px 0 0 0;
 `;
 
 export const FieldLabel = styled.label`
@@ -35,14 +35,19 @@ export const FieldLabel = styled.label`
 `;
 
 export const Field = styled.input`
-    width: 400px;
+    width: ${props => props.columns === 1 ? '1000px' : '400px'};
     height: 40px;
     border-radius: 20px;
     border-color: black;
 `;
 
+export const TextAreaField = styled(Field)`
+    height: 80px;
+    border-radius: 10px;
+`;
+
 export const Select = styled.select`
-    width: 400px;
+    width: ${props => props.columns === 1 ? '1000px' : '400px'};
     height: 40px;
     border-radius: 20px;
     border-color: black;
@@ -95,6 +100,8 @@ export const ProductListDiv = styled.div`
     height: 200px;
     border: solid;
     border-collapse: collapse;
+    overflow-y: scroll;
+    overflow-x: hidden;
 `;
 
 export const ProductsList = styled.table`
@@ -124,4 +131,28 @@ export const Cell = styled.td`
 export const HeadCell = styled.th`
     border: solid;
     width: ${props => props.width};
+`;
+
+export const FileInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const FileInput = styled.input``;
+
+export const Image = styled.img`
+    width: 50px;
+    height: 50px;
+`;
+
+export const ImageContainer = styled.div`
+    width: 150px;
+    height: 120px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0 0 0;
 `;

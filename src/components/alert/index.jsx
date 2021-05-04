@@ -8,17 +8,32 @@ import { Modal, Button, ButtonContainer, TextContainer, InsideButton, ImageConta
 import Confirm from '../../assets/confirme.svg';
 import Exit from '../../assets/exit.png';
 
-const Alert = ({showAlert}) => {
+const Alert = ({ showAlert }) => {
 
-    const {alertConfig, setAlertConfig} = useContext(mainContext);
+    const { alertConfig, setAlertConfig } = useContext(mainContext);
 
     const confirmButton = () => {
+        let response = 'false';
+        if (alertConfig.type && alertConfig.type === 'confirm') {
+            response = 'true';
+        }
         setAlertConfig({
-            'type' : '',
-            'title' : '',
-            'text' : '',
-            'show' : 'none'
-          });
+            'type': '',
+            'title': '',
+            'text': '',
+            'show': 'none',
+            'response': response
+        });
+    }
+
+    const rollbackButton = () => {
+        setAlertConfig({
+            'type': '',
+            'title': '',
+            'text': '',
+            'show': 'none',
+            'response': 'false'
+        });
     }
 
     return (
@@ -29,18 +44,18 @@ const Alert = ({showAlert}) => {
                 </TextContainer>
                 <TextContainer>
                     <span>{alertConfig.text}</span>
-                </TextContainer>                
+                </TextContainer>
                 {alertConfig.type === 'confirm' &&
                     <ButtonContainer>
                         <Button onClick={() => confirmButton()}>
                             <InsideButton>
                                 <ImageContainer>
-                                    <Img src={Confirm} />                                    
+                                    <Img src={Confirm} />
                                 </ImageContainer>
                                 Confirmar
                             </InsideButton>
                         </Button>
-                        <Button>
+                        <Button onClick={() => rollbackButton()}>
                             <InsideButton>
                                 <ImageContainer>
                                     <Img src={Exit} />
@@ -49,13 +64,13 @@ const Alert = ({showAlert}) => {
                             </InsideButton>
                         </Button>
                     </ButtonContainer>
-                }                
+                }
                 {alertConfig.type === 'alert' &&
                     <ButtonContainer>
                         <Button onClick={() => confirmButton()}>
                             <InsideButton>
                                 <ImageContainer>
-                                    <Img src={Confirm} /> 
+                                    <Img src={Confirm} />
                                 </ImageContainer>
                                 Confirmar
                             </InsideButton>

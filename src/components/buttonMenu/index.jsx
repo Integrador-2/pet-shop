@@ -7,6 +7,7 @@ import { Btn } from './style';
 
 const ButtonMenu = ({ text, origin }) => {
 
+
     const { setActualPage } = useContext(mainContext);
 
     const changePage = (page) => {

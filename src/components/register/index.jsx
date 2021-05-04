@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import produce from "immer";
 
@@ -9,7 +9,8 @@ import {
     Container, DivTitle, Title, FieldContainer, FieldLabel,
     Field, DivFields, DivButtonForm, ButtonForm, Select, Option,
     ProductsListContainer, ProductsListButtonsContainer,
-    ProductsList, Line, Cell, HeadCell, ProductListDiv
+    ProductsList, Line, Cell, HeadCell, ProductListDiv, TextAreaField,
+    Image, FileInput, FileInputContainer, ImageContainer
 } from './style';
 import Modal from '../modal/index';
 import Alert from '../alert/index';
@@ -17,11 +18,34 @@ import Alert from '../alert/index';
 import { fields } from '../../data/index';
 
 const Register = ({ origin, title }) => {
-    const { actualPage, setShowAlert, showAlert, showModal, setShowModal, setAlertTitle,
-        setAlertText, setAlertType, setAlertConfig } = useContext(mainContext);    
+    const { actualPage, setShowAlert, showAlert, showModal, setShowModal,
+        setAlertConfig, alertConfig } = useContext(mainContext);
     const [saleProducts, setSaleProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState('');
-    const [operation, setOperation] = useState('');    
+    const [operation, setOperation] = useState('');
+    const [image, setImage] = useState('');
+    const [waitingResponse, setWaitingResponse] = useState('');
+    const [columns, setColumns] = useState(2);
+
+    console.log(origin);
+
+    useEffect(() => {
+        if (alertConfig.response) {
+            if (waitingResponse === 'image') {
+                if (alertConfig.response === 'true') {
+                    setImage('');
+                }
+            }
+        }
+    }, [alertConfig, waitingResponse]);
+
+    useEffect(() => {
+        if (origin === 'reversal' || origin === 'report') {
+            setColumns(1);
+        } else {
+            setColumns(2);
+        }
+    }, [origin]);
 
     const showItens = (changeOperation) => {
         if ((changeOperation === 'edit' && selectedProduct && selectedProduct > 0) || changeOperation === 'insert') {
@@ -29,11 +53,11 @@ const Register = ({ origin, title }) => {
             setShowModal('flex');
         } else {
             setAlertConfig({
-                'type' : 'alert',
-                'title' : 'Não é possível continuar',
-                'text' : 'Selecione um produto para fazer a edição!',
-                'show' : 'flex'
-              })
+                'type': 'alert',
+                'title': 'Não é possível continuar',
+                'text': 'Selecione um produto para fazer a edição!',
+                'show': 'flex'
+            })
         }
     }
 
@@ -48,19 +72,41 @@ const Register = ({ origin, title }) => {
 
     const removeProduct = () => {
         if (!selectedProduct) {
-            setAlertTitle('Não é possível continuar.');
-            setAlertType('alert');
-            setAlertText('Para remover algum item da lista, selecione o mesmo primeiro.');
+            setAlertConfig({
+                'type': 'alert',
+                'title': 'Não é possível continuar.',
+                'text': 'Para remover algum item da lista, selecione o mesmo primeiro.',
+                'show': 'flex',
+                'response': 'false'
+            });
             setShowAlert('flex');
         }
         setSaleProducts(produce(saleProducts, draft => {
             draft.forEach((item, code) => {
-                if (item.code === selectedProduct) {                    
-                    draft.splice(code, 1);                    
+                if (item.code === selectedProduct) {
+                    draft.splice(code, 1);
                 }
                 setSelectedProduct('');
             })
-        }));        
+        }));
+    }
+
+    const handleChange = (e, item) => {
+        if (item.type === 'file') {
+            setImage(URL.createObjectURL(e.target.files[0]));
+        }
+    }
+
+    const removeImage = () => {
+        setAlertConfig({
+            'type': 'confirm',
+            'title': 'Tem certeza que deseja efetuar essa ação?',
+            'text': 'Tem certeza que deseja excluir a imagem?',
+            'show': 'flex',
+            'response': 'false'
+        });
+
+        setWaitingResponse('image');
     }
 
     return (
@@ -77,20 +123,34 @@ const Register = ({ origin, title }) => {
                 <DivTitle>
                     <Title>{title}</Title>
                 </DivTitle>
-                <DivFields>
+                <DivFields columns={columns}>
                     {
                         fields.map((item, index) => item.origin === origin &&
                             <FieldContainer key={index}>
                                 <FieldLabel>{item.label}</FieldLabel>
-                                {item.type !== 'select' ? (
-                                    <Field id={item.id} type={item.type} />
-                                ) : (
-                                        <Select id={item.id}>
-                                            {item.options.forEach((value, key) =>
-                                                <Option>{value.value}</Option>
+                                {(item.type !== 'select' && item.type !== 'textarea' && item.type !== 'file') && (
+                                    <Field columns={columns} id={item.id} type={item.type} />
+                                )}
+                                {item.type === 'select' && (
+                                    <Select columns={columns} id={item.id}>
+                                        {item.options.map((value) =>
+                                            <Option>{value.value}</Option>
+                                        )}
+                                    </Select>
+                                )}
+                                {item.type === 'textarea' && (
+                                    <TextAreaField columns={columns} rows="3" id={item.id}></TextAreaField>
+                                )}
+                                {item.type === 'file' && (
+                                    <FileInputContainer>
+                                        <FileInput id={item.id} type={item.type} onChange={(e) => handleChange(e, item)} />
+                                        <ImageContainer onClick={() => removeImage()}>
+                                            {image && (
+                                                <Image src={image} />
                                             )}
-                                        </Select>
-                                    )}
+                                        </ImageContainer>
+                                    </FileInputContainer>
+                                )}
                             </FieldContainer>
                         )
                     }
@@ -108,7 +168,7 @@ const Register = ({ origin, title }) => {
                                     <Line>
                                         <HeadCell width="200px">Código</HeadCell>
                                         <HeadCell width="550px">Nome</HeadCell>
-                                        <HeadCell width="150px">Quantidade</HeadCell>
+                                        <HeadCell width="130px">Quantidade</HeadCell>
                                         <HeadCell width="100px">Preço</HeadCell>
                                     </Line>
                                     {saleProducts.map((item, index) =>

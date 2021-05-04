@@ -9,6 +9,7 @@ import RegisterClient from './pages/registerClient';
 import RegisterSuplier from './pages/registerSuplier';
 import RegisterService from './pages/registerService';
 import RegisterReversal from './pages/registerReversal';
+import RegisterReport from './pages/registerReport';
 
 import './styles/global.css';
 
@@ -16,14 +17,12 @@ function App() {
   const [actualPage, setActualPage] = useState('client');
 
   const [alertConfig, setAlertConfig] = useState({
-    'type' : '',
-    'title' : '',
-    'text' : '',
-    'show' : 'none'
+    'type': '',
+    'title': '',
+    'text': '',
+    'show': 'none',
+    'response': 'false'
   });
-  const [alertTitle, setAlertTitle] = useState('');
-  const [alertType, setAlertType] = useState('');
-  const [alertText, setAlertText] = useState('');
   const [showAlert, setShowAlert] = useState('none');
   const [showModal, setShowModal] = useState('none');
 
@@ -31,18 +30,12 @@ function App() {
     <mainContext.Provider value={{
       setActualPage,
       actualPage,
-      alertTitle,
-      setAlertTitle,
-      alertType,
-      setAlertType,
-      alertText,
-      setAlertText,
-      showAlert,
-      setShowAlert,
       showModal,
       setShowModal,
       setAlertConfig,
-      alertConfig
+      alertConfig,
+      showAlert,
+      setShowAlert
     }}>
       <GroupButtons />
       {
@@ -73,6 +66,11 @@ function App() {
       {
         actualPage === 'reversal' && (
           <RegisterReversal />
+        )
+      }
+      {
+        actualPage === 'report' && (
+          <RegisterReport />
         )
       }
     </mainContext.Provider >

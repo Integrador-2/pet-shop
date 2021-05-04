@@ -16,8 +16,8 @@ import Exit from '../../assets/exit.png';
 
 const Modal = ({ showModal }) => {
 
-    const { setShowModal, saleProducts, setSaleProducts, selectedProduct, operation } = useContext(saleContext);    
-    const { setShowAlert, showAlert, setAlertTitle, setAlertText, setAlertType, setAlertConfig } = useContext(mainContext);     
+    const { setShowModal, saleProducts, setSaleProducts, selectedProduct, operation } = useContext(saleContext);
+    const { setAlertConfig, showAlert, setShowAlert } = useContext(mainContext);
     const [code, setCode] = useState('');
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(0);
@@ -26,7 +26,7 @@ const Modal = ({ showModal }) => {
         if (operation === 'edit' && selectedProduct) {
             produce(saleProducts, draft => {
                 draft.forEach((item) => {
-                    if (item.code === selectedProduct) {                        
+                    if (item.code === selectedProduct) {
                         setCode(item.code);
                         setName(item.name);
                         setQuantity(item.quantity);
@@ -49,11 +49,11 @@ const Modal = ({ showModal }) => {
                                 if (parseInt(product.quantity) < parseInt(item.quantity)) {
                                     item.quantity = parseInt(item.quantity) - parseInt(quantity);
                                     setAlertConfig({
-                                        'type' : 'alert',
-                                        'title' : 'Não é possível continuar',
-                                        'text' : 'A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.',
-                                        'show' : 'flex'
-                                      })
+                                        'type': 'alert',
+                                        'title': 'Não é possível continuar',
+                                        'text': 'A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.',
+                                        'show': 'flex'
+                                    })
                                     return;
                                 }
                                 clearStates();
@@ -67,14 +67,17 @@ const Modal = ({ showModal }) => {
                         if (item.code === code) {
                             const product = { ...item };
                             if (parseInt(quantity) > parseInt(product.quantity)) {
-                                setAlertType('alert');
-                                setAlertText('A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.');
-                                setAlertTitle('Não é possível continuar.');
+                                setAlertConfig({
+                                    'type': 'alert',
+                                    'title': 'Não é possível continuar.',
+                                    'text': 'A quantidade atual do produto é: ' + product.quantity + ', que é menos que a quantidade solicitada.',
+                                    'show': 'flex'
+                                });
                                 setShowAlert('flex');
                                 return;
                             }
                             product.quantity = setProductSaleQuantity(product.quantity, 'insert');
-                            product.price = parseFloat(product.price) * product.quantity;                        
+                            product.price = parseFloat(product.price) * product.quantity;
                             draft.push(product);
                             clearStates();
                             setShowModal('none');
@@ -103,7 +106,7 @@ const Modal = ({ showModal }) => {
             products.forEach((item) => {
                 if (item.code === id) {
                     setCode(item.code);
-                    setName(item.name);                    
+                    setName(item.name);
                 }
             });
         }
