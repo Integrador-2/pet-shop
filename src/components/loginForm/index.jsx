@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
+import Alert from "../alert/index";
 
 import {
     Container, ImageContainer, Image, LoginContainer,
@@ -13,15 +15,19 @@ import mainContext from "../../context/context";
 
 const LoginForm = () => {
 
-    const { setActualPage } = useContext(mainContext);
+    const { setActualPage, showAlert, setShowAlert } = useContext(mainContext);
+
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        setActualPage('client');
+        setActualPage('service');
     }
 
 
     return (
         <Container>
+            <Alert showAlert={showAlert} />
             <ImageContainer>
                 <Image src={Img} />
             </ImageContainer>
@@ -33,11 +39,11 @@ const LoginForm = () => {
                 <LabelContainer>
                     <Span><b>Login:</b></Span>
                 </LabelContainer>
-                <LoginInput />
+                <LoginInput value={login} />
                 <LabelContainer>
                     <Span><b>Senha:</b></Span>
                 </LabelContainer>
-                <LoginInput type="password" />
+                <LoginInput type="password" value={password} />
                 <ButtonContainer>
                     <Button onClick={() => handleLogin()}><b>Entrar</b></Button>
                 </ButtonContainer>

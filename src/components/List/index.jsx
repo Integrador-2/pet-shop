@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 
+import Alert from "../alert/index";
+
 import {
     ProductsListContainer, ProductsListButtonsContainer, ButtonForm, ProductListDiv,
     ProductsList, Line, HeadCell, Cell, DivTitle, Title, Container
@@ -16,7 +18,7 @@ const List = ({ origin, title }) => {
 
     const [selectedLine, setSelectedLine] = useState('');
 
-    const { setActualPage } = useContext(mainContext);
+    const { setActualPage, showAlert, setShowAlert } = useContext(mainContext);
 
     const handleInsert = () => {
         if (origin === 'client') {
@@ -39,6 +41,7 @@ const List = ({ origin, title }) => {
 
     return (
         <Container>
+            <Alert showAlert={showAlert} />
             <DivTitle>
                 <Title>{title}</Title>
             </DivTitle>

@@ -17,6 +17,8 @@ import Alert from '../alert/index';
 
 import { fields, TableColumns } from '../../data/index';
 
+import px2vw from "../../utils/px2vw";
+
 const Register = ({ origin, title }) => {
     const { actualPage, setShowAlert, showAlert, showModal, setShowModal,
         setAlertConfig, alertConfig } = useContext(mainContext);
@@ -157,7 +159,7 @@ const Register = ({ origin, title }) => {
                         )
                     }
                 </DivFields>
-                {actualPage === 'service' &&
+                {actualPage === 'registerService' &&
                     <ProductsListContainer>
                         <ProductsListButtonsContainer>
                             <ButtonForm onClick={() => showItens('insert')}>Inserir</ButtonForm>
@@ -168,10 +170,10 @@ const Register = ({ origin, title }) => {
                             <ProductsList>
                                 <tbody>
                                     <Line>
-                                        <HeadCell width="200px">Código</HeadCell>
-                                        <HeadCell width="550px">Nome</HeadCell>
-                                        <HeadCell width="130px">Quantidade</HeadCell>
-                                        <HeadCell width="100px">Preço</HeadCell>
+                                        <HeadCell width={px2vw(200)}>Código</HeadCell>
+                                        <HeadCell width={px2vw(560)}>Nome</HeadCell>
+                                        <HeadCell width={px2vw(140)}>Quantidade</HeadCell>
+                                        <HeadCell width={px2vw(100)}>Preço</HeadCell>
                                     </Line>
                                     {saleProducts.map((item, index) =>
                                         <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
@@ -197,9 +199,9 @@ const Register = ({ origin, title }) => {
                                 <tbody>
                                     {TableColumns.map((item, index) =>
                                         <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
-                                            <HeadCell width="200px" id={item.code}>{item.code}</HeadCell>
-                                            <HeadCell width="550px" id={item.code}>{item.name}</HeadCell>
-                                            <HeadCell width="130px" id={item.code}><TableButton><label>Detalhes</label></TableButton></HeadCell>
+                                            <HeadCell width={px2vw(200)} id={item.code}>{item.code}</HeadCell>
+                                            <HeadCell width={px2vw(650)} id={item.code}>{item.name}</HeadCell>
+                                            <HeadCell width={px2vw(150)} id={item.code}><TableButton><label>Detalhes</label></TableButton></HeadCell>
                                         </Line>
                                     )}
                                 </tbody>
