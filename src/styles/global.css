@@ -15,21 +15,15 @@
     --opacity: rgba(0,0,0,0.4);
 }
 
-@media(max-width: 1080px) {
+@media(min-width: 1080px) {
     html {
-        font-size: 93.75%;    
-    }    
-}
-
-@media(max-width: 720px) {
-    html {
-        font-size: 87.5%;
+        font-size: 93.75%;
     }
 }
 
-@media(max-width: 1900px) {
-    body {
-        background-size: 90%;
+@media(min-width: 720px) {
+    html {
+        font-size: 87.5%;
     }
 }
 

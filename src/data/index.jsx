@@ -288,3 +288,252 @@ export const products = [{
     'price': '80.00',
     'quantity': '0'
 }];
+
+
+export const ListFields = [{
+    'origin': 'client',
+    'field': 'code',
+    'title': 'Código',
+    'width': '150'
+}, {
+    'origin': 'client',
+    'field': 'name',
+    'title': 'Nome',
+    'width': '450'
+}, {
+    'origin': 'client',
+    'field': 'phone',
+    'title': 'Telefone',
+    'width': '195'
+}, {
+    'origin': 'client',
+    'field': 'gender',
+    'title': 'Gênero',
+    'width': '185'
+},
+
+{
+    'origin': 'employee',
+    'field': 'code',
+    'title': 'Código',
+    'width': '100'
+}, {
+    'origin': 'employee',
+    'field': 'name',
+    'title': 'Nome',
+    'width': '500'
+}, {
+    'origin': 'employee',
+    'field': 'phone',
+    'title': 'Telefone',
+    'width': '150'
+}, {
+    'origin': 'employee',
+    'field': 'date_admission',
+    'title': 'Admissão',
+    'width': '115'
+}, {
+    'origin': 'employee',
+    'field': 'active',
+    'title': 'Ativo',
+    'width': '115'
+},
+
+{
+    'origin': 'product',
+    'field': 'code',
+    'title': 'Código',
+    'width': '100'
+}, {
+    'origin': 'product',
+    'field': 'name',
+    'title': 'Nome',
+    'width': '500'
+}, {
+    'origin': 'product',
+    'field': 'sector',
+    'title': 'Tipo',
+    'width': '200'
+}, {
+    'origin': 'product',
+    'field': 'price',
+    'title': 'Preço',
+    'width': '80'
+}, {
+    'origin': 'product',
+    'field': 'quantity',
+    'title': 'Estoque',
+    'width': '100'
+},
+
+{
+    'origin': 'supplier',
+    'field': 'code',
+    'title': 'Código',
+    'width': '100'
+}, {
+    'origin': 'supplier',
+    'field': 'name',
+    'title': 'Nome',
+    'width': '400'
+}, {
+    'origin': 'supplier',
+    'field': 'entity',
+    'title': 'Entidade',
+    'width': '350'
+}, {
+    'origin': 'supplier',
+    'field': 'phone',
+    'title': 'Telefone',
+    'width': '130'
+},
+
+{
+    'origin': 'service',
+    'field': 'code',
+    'title': 'Código',
+    'width': '100'
+}, {
+    'origin': 'service',
+    'field': 'description',
+    'title': 'Descrição',
+    'width': '300'
+}, {
+    'origin': 'service',
+    'field': 'entry_date',
+    'title': 'Entrada',
+    'width': '100'
+}, {
+    'origin': 'service',
+    'field': 'leave_date',
+    'title': 'Saída',
+    'width': '100'
+}, {
+    'origin': 'service',
+    'field': 'client',
+    'title': 'Cliente',
+    'width': '130'
+}, {
+    'origin': 'service',
+    'field': 'total_value',
+    'title': 'Valor',
+    'width': '70'
+}]
+
+export const ListValues = [{
+    'origin': 'client',
+    'code': '1',
+    'name': 'Cliente novato',
+    'phone': '(55) 99108-2012',
+    'gender': 'Masculino'
+},
+{
+    'origin': 'client',
+    'code': '2',
+    'name': 'Cliente pleno',
+    'phone': '(55) 99108-2005',
+    'gender': 'Masculino'
+}, {
+    'origin': 'client',
+    'code': '3',
+    'name': 'Cliente senior',
+    'phone': '(55) 99108-2017',
+    'gender': 'Feminino'
+},
+
+{
+    'origin': 'employee',
+    'code': '1',
+    'name': 'Funcionario novato',
+    'phone': '(55) 99108-2012',
+    'date_admission': '01/01/2021',
+    'active': 'Sim'
+},
+{
+    'origin': 'employee',
+    'code': '2',
+    'name': 'Funcionario pleno',
+    'phone': '(55) 99108-2012',
+    'date_admission': '01/02/2021',
+    'active': 'Nao'
+},
+{
+    'origin': 'employee',
+    'code': '3',
+    'name': 'Funcionario senior',
+    'phone': '(55) 99108-2012',
+    'date_admission': '01/03/2021',
+    'active': 'Sim'
+},
+
+{
+    'origin': 'products',
+    'code': '1',
+    'name': 'Produto novato',
+    'sector': 'Comestiveis',
+    'price': 'R$ 17,00',
+    'quantity': '29'
+},
+{
+    'origin': 'products',
+    'code': '2',
+    'name': 'Produto pleno',
+    'sector': 'Brinquedo',
+    'price': 'R$ 27,00',
+    'quantity': '17'
+},
+{
+    'origin': 'products',
+    'code': '3',
+    'name': 'Produto senior',
+    'sector': 'Remedio',
+    'price': 'R$ 117,00',
+    'quantity': '7'
+},
+
+{
+    'origin': 'supplier',
+    'code': '1',
+    'name': 'Fornecedor novato',
+    'entity': 'Novatos Corp',
+    'phone': '(55) 99108-2012'
+},
+{
+    'origin': 'supplier',
+    'code': '2',
+    'name': 'Fornecedor pleno',
+    'entity': 'Plenos Corp',
+    'phone': '(55) 99108-2012'
+},
+{
+    'origin': 'supplier',
+    'code': '3',
+    'name': 'Fornecedor senior',
+    'entity': 'Senior Corp',
+    'phone': '(55) 99108-2012'
+},
+
+{
+    'origin': 'service',
+    'description': 'Compra de racao',
+    'entry_date': '--/--/--',
+    'leave_date': '--/--/--',
+    'client': 'Cliente novato',
+    'total_value': 'R$ 170,00'
+},
+{
+    'origin': 'service',
+    'description': 'Compra de brinquedo',
+    'entry_date': '--/--/--',
+    'leave_date': '--/--/--',
+    'client': 'Cliente pleno',
+    'total_value': 'R$ 100,00'
+},
+{
+    'origin': 'service',
+    'description': 'Consulta cao doente',
+    'entry_date': '01/03/2021',
+    'leave_date': '03/03/2021',
+    'client': 'Cliente senior',
+    'total_value': 'R$ 80,00'
+}]

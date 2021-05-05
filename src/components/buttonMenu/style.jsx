@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
+import px2vw from "../../utils/px2vw";
+
 export const Btn = styled.button`
-    width: 140px;
-    height: 65px;
-    border-radius: 35px;
-    font-size: 15pt;
+    width: ${px2vw(140)};
+    height: ${px2vw(65)};
+    border-radius: ${px2vw(35)};
     background: var(--gradient);
-    margin-left: 45px;
+    margin-left: ${px2vw(25)};
 
     &:hover {
         color: red;

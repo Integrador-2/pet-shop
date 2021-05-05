@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { Btn } from "../buttonMenu/style";
 
+import px2vw from "../../utils/px2vw";
+
 export const Container = styled.div`
     height: 100%;
     width: 100%;
@@ -10,7 +12,7 @@ export const Container = styled.div`
 export const DivTitle = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 45px;
+    margin-top: ${px2vw(45)};
 
 `;
 
@@ -20,7 +22,7 @@ export const Title = styled.span`
 
 export const DivFields = styled.div`
     display: grid;
-    grid-template-columns: ${props => props.columns === 1 ? '50%' : '25% 25%'};
+    grid-template-columns: ${props => props.columns === 1 ? '60vw' : '30vw 30vw'};
     justify-content: center;
     margin-top: 25px;
 `;
@@ -37,8 +39,8 @@ export const FieldLabel = styled.label`
 `;
 
 export const Field = styled.input`
-    width: ${props => props.columns === 1 ? '1000px' : '400px'};
-    height: 40px;
+    width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
+    height: ${px2vw(40)};
     border-radius: 20px;
     border-color: black;
 `;
@@ -49,8 +51,8 @@ export const TextAreaField = styled(Field)`
 `;
 
 export const Select = styled.select`
-    width: ${props => props.columns === 1 ? '1000px' : '400px'};
-    height: 40px;
+    width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
+    height: ${px2vw(40)};
     border-radius: 20px;
     border-color: black;
 `;
@@ -65,12 +67,12 @@ export const DivButtonForm = styled.div`
 `;
 
 export const ButtonForm = styled.button`
-    width: 200px;
-    height: 45px;
+    width: ${px2vw(200)};
+    height: ${px2vw(45)};
     border-radius: 35px;
     font-size: 15pt;
     background: var(--gradient);
-    margin: 45px;
+    margin: ${px2vw(45)};
 
     &:hover {
         color: red;
@@ -81,25 +83,27 @@ export const ButtonForm = styled.button`
 export const ContainerList = styled.div`
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 120px 120px 120px 400px;
+    grid-template-rows: ${px2vw(120)} ${px2vw(120)} ${px2vw(120)} ${px2vw(400)};
 `;
 
 export const ProductsListContainer = styled.div`
-    display: grid;
-    grid-template-rows: 100px 200px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
 `;
 
 export const ProductsListButtonsContainer = styled.div`
     display: flex;
-    width: 1000px;
-    justify-content: space-between;
+    width: ${px2vw(1000)};
+    justify-content: space-evenly;
 `;
 
 export const ProductListDiv = styled.div`
-    margin-top: 15px;
+    margin: ${px2vw(15)} 0 0 ${px2vw(30)};
     background: var(--purple);
-    height: 200px;
+    height: ${px2vw(200)};
+    width: ${px2vw(990)};
     border: solid;
     border-collapse: collapse;
     overflow-y: scroll;
@@ -109,7 +113,7 @@ export const ProductListDiv = styled.div`
 export const ProductsList = styled.table`
     border-collapse: collapse;
     table-layout: fixed;
-    margin: -2px;
+    margin: ${px2vw(-2)};
 `;
 
 
@@ -143,28 +147,28 @@ export const FileInputContainer = styled.div`
 export const FileInput = styled.input``;
 
 export const Image = styled.img`
-    width: 50px;
-    height: 50px;
+    width: ${px2vw(100)};
+    height: ${px2vw(100)};
 `;
 
 export const ImageContainer = styled.div`
-    width: 150px;
-    height: 120px;
-    border-radius: 15px;
+    width: ${px2vw(150)};
+    height: ${px2vw(120)};
+    border-radius: ${px2vw(15)};
     border-style: solid;
     border-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px 0 0 0;
+    margin: ${px2vw(5)} 0 0 0;
 `;
 
 export const TableButton = styled(Btn)`
-    width: 100px;
-    height: 25px;
+    width: ${px2vw(100)};
+    height: ${px2vw(25)};
     display: flex;
     justify-content: center;
-    margin: 2px;
+    margin: ${px2vw(2)};
 
     & label {
         font-size: 10pt;

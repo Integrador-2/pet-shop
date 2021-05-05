@@ -98,15 +98,17 @@ const Register = ({ origin, title }) => {
     }
 
     const removeImage = () => {
-        setAlertConfig({
-            'type': 'confirm',
-            'title': 'Tem certeza que deseja efetuar essa ação?',
-            'text': 'Tem certeza que deseja excluir a imagem?',
-            'show': 'flex',
-            'response': 'false'
-        });
+        if (image) {
+            setAlertConfig({
+                'type': 'confirm',
+                'title': 'Tem certeza que deseja efetuar essa ação?',
+                'text': 'Tem certeza que deseja excluir a imagem?',
+                'show': 'flex',
+                'response': 'false'
+            });
 
-        setWaitingResponse('image');
+            setWaitingResponse('image');
+        }
     }
 
     return (
@@ -193,12 +195,6 @@ const Register = ({ origin, title }) => {
                         <ProductListDiv>
                             <ProductsList>
                                 <tbody>
-                                    {/* <Line>
-                                        <HeadCell width="200px">Código</HeadCell>
-                                        <HeadCell width="550px">Nome</HeadCell>
-                                        <HeadCell width="130px">Quantidade</HeadCell>
-                                        <HeadCell width="100px">Preço</HeadCell>
-                                    </Line> */}
                                     {TableColumns.map((item, index) =>
                                         <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
                                             <HeadCell width="200px" id={item.code}>{item.code}</HeadCell>

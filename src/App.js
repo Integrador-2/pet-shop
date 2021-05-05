@@ -3,14 +3,20 @@ import { useState } from 'react';
 import mainContext from "./context/context";
 
 import GroupButtons from './components/groupButtons';
+import RegisterReversal from './pages/registerReversal';
+import RegisterReport from './pages/registerReport';
+import Login from './pages/login';
+import ListClient from './pages/listClient';
+import ListEmployee from './pages/listEmployee';
+import ListProduct from './pages/listProduct';
+import ListService from './pages/listService';
+import ListSupplier from './pages/listSupplier';
 import RegisterEmployee from './pages/registerEmployee';
 import RegisterProduct from './pages/registerProduct';
 import RegisterClient from './pages/registerClient';
 import RegisterSuplier from './pages/registerSuplier';
 import RegisterService from './pages/registerService';
-import RegisterReversal from './pages/registerReversal';
-import RegisterReport from './pages/registerReport';
-import Login from './pages/login';
+
 
 import './styles/global.css';
 
@@ -47,27 +53,27 @@ function App() {
       }
       {
         actualPage === 'client' && (
-          <RegisterClient />
+          <ListClient />
         )
       }
       {
         actualPage === 'employee' && (
-          <RegisterEmployee />
+          <ListEmployee />
         )
       }
       {
         actualPage === 'product' && (
-          <RegisterProduct />
+          <ListProduct />
         )
       }
       {
         actualPage === 'suplier' && (
-          <RegisterSuplier />
+          <ListSupplier />
         )
       }
       {
         actualPage === 'service' && (
-          <RegisterService />
+          <ListService />
         )
       }
       {
@@ -78,6 +84,31 @@ function App() {
       {
         actualPage === 'report' && (
           <RegisterReport />
+        )
+      }
+      {
+        actualPage === 'registerEmployee' && (
+          <RegisterEmployee />
+        )
+      }
+      {
+        actualPage === 'registerProduct' && (
+          <RegisterProduct />
+        )
+      }
+      {
+        actualPage === 'registerSuplier' && (
+          <RegisterSuplier />
+        )
+      }
+      {
+        actualPage === 'registerService' && (
+          <RegisterService />
+        )
+      }
+      {
+        actualPage === 'registerClient' && (
+          <RegisterClient />
         )
       }
     </mainContext.Provider >
