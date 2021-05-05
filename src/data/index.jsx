@@ -397,7 +397,7 @@ export const ListFields = [{
     'origin': 'service',
     'field': 'description',
     'title': 'Descrição',
-    'width': '300'
+    'width': '400'
 }, {
     'origin': 'service',
     'field': 'entry_date',
@@ -412,7 +412,7 @@ export const ListFields = [{
     'origin': 'service',
     'field': 'client',
     'title': 'Cliente',
-    'width': '130'
+    'width': '210'
 }, {
     'origin': 'service',
     'field': 'total_value',
@@ -467,7 +467,7 @@ export const ListValues = [{
 },
 
 {
-    'origin': 'products',
+    'origin': 'product',
     'code': '1',
     'name': 'Produto novato',
     'sector': 'Comestiveis',
@@ -475,7 +475,7 @@ export const ListValues = [{
     'quantity': '29'
 },
 {
-    'origin': 'products',
+    'origin': 'product',
     'code': '2',
     'name': 'Produto pleno',
     'sector': 'Brinquedo',
@@ -483,7 +483,7 @@ export const ListValues = [{
     'quantity': '17'
 },
 {
-    'origin': 'products',
+    'origin': 'product',
     'code': '3',
     'name': 'Produto senior',
     'sector': 'Remedio',
@@ -515,6 +515,7 @@ export const ListValues = [{
 
 {
     'origin': 'service',
+    'code': '1',
     'description': 'Compra de racao',
     'entry_date': '--/--/--',
     'leave_date': '--/--/--',
@@ -523,6 +524,7 @@ export const ListValues = [{
 },
 {
     'origin': 'service',
+    'code': '2',
     'description': 'Compra de brinquedo',
     'entry_date': '--/--/--',
     'leave_date': '--/--/--',
@@ -531,6 +533,7 @@ export const ListValues = [{
 },
 {
     'origin': 'service',
+    'code': '3',
     'description': 'Consulta cao doente',
     'entry_date': '01/03/2021',
     'leave_date': '03/03/2021',
