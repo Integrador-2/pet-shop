@@ -214,7 +214,7 @@ const Register = ({ origin, title }) => {
                     </ProductsListContainer>
                 }
                 <DivButtonForm>
-                    <ButtonForm>Cadastrar</ButtonForm>
+                    <ButtonForm>{actualPage === "report" ? "Buscar" : "Cadastrar"}</ButtonForm>
                     <ButtonForm>Cancelar</ButtonForm>
                 </DivButtonForm>
             </Container>
