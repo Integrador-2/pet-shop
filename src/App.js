@@ -16,6 +16,7 @@ import RegisterProduct from './pages/registerProduct';
 import RegisterClient from './pages/registerClient';
 import RegisterSuplier from './pages/registerSuplier';
 import RegisterService from './pages/registerService';
+import UserTab from './components/userTab';
 
 
 import './styles/global.css';

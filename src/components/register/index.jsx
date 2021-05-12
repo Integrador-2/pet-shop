@@ -14,6 +14,7 @@ import {
 } from './style';
 import Modal from '../modal/index';
 import Alert from '../alert/index';
+import AdvancedFilter from '../advancedFilter/index';
 
 import { fields, TableColumns } from '../../data/index';
 
@@ -127,6 +128,9 @@ const Register = ({ origin, title }) => {
                 <DivTitle>
                     <Title>{title}</Title>
                 </DivTitle>
+                {actualPage === "report" &&
+                    <AdvancedFilter />
+                }
                 <DivFields columns={columns}>
                     {
                         fields.map((item, index) => item.origin === origin &&

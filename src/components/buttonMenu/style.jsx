@@ -8,6 +8,7 @@ export const Btn = styled.button`
     border-radius: ${px2vw(35)};
     background: var(--gradient);
     margin-left: ${px2vw(25)};
+    outline: 0;
 
     &:hover {
         color: red;
