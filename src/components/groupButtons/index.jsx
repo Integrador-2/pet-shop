@@ -2,11 +2,15 @@ import React from 'react';
 import { Container, ButtonContainer } from './style';
 import ButtonMenu from '../buttonMenu';
 
+import Logo from '../../assets/logo.png';
+import { Img } from './style';
+
 const GroupButtons = () => {
 
     return (
         <Container>
             <ButtonContainer>
+                <Img src={Logo}/>
                 <ButtonMenu origin="service" text="Serviço"></ButtonMenu>
                 <ButtonMenu origin="client" text="Cliente"></ButtonMenu>
                 <ButtonMenu origin="product" text="Produtos"></ButtonMenu>

@@ -6,7 +6,7 @@ import px2vw from "../../utils/px2vw";
 
 export const Container = styled.div`
     height: 100%;
-    width: 100%;
+    width: 75%;   
 `;
 
 export const DivTitle = styled.div`
@@ -22,7 +22,7 @@ export const Title = styled.span`
 
 export const DivFields = styled.div`
     display: grid;
-    grid-template-columns: ${props => props.columns === 1 ? '60vw' : '30vw 30vw'};
+    grid-template-columns: ${props => props.columns === 1 ? '64vw' : '30vw 30vw'};
     justify-content: center;
     margin-top: 25px;
 `;
@@ -89,7 +89,7 @@ export const ContainerList = styled.div`
 export const ProductsListContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 70vw;
     align-items: center;
 `;
 

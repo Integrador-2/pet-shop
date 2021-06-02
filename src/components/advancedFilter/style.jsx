@@ -3,7 +3,7 @@ import styled from "styled-components";
 import px2vw from "../../utils/px2vw";
 
 export const Container = styled.div`
-    margin-left: ${px2vw(310)};
+    margin-left: ${px2vw(80)};
     widht: ${px2vw(1000)};
     height: ${props => px2vw(props.height)};
     display: flex;
@@ -45,7 +45,7 @@ export const ContainerButton = styled.div`
     display: flex;
     align-items: right;
     justify-content: right;
-    width: 100vw;
+    width: 70vw;
     margin: ${px2vw(4)} 0 0 ${px2vw(4)};
 `;
 

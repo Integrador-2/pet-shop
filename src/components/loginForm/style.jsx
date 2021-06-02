@@ -6,7 +6,7 @@ import { Btn } from "../buttonMenu/style";
 import px2vw from "../../utils/px2vw";
 
 export const Container = styled.div`
-    width: 100vw;
+    width: 70vw;
     height: 100vh;
     display: flex;
     flex-direction: row;

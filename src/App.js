@@ -20,6 +20,7 @@ import UserTab from './components/userTab';
 
 
 import './styles/global.css';
+import { Container } from './styles/style';
 
 function App() {
   const [actualPage, setActualPage] = useState('login');
@@ -45,6 +46,7 @@ function App() {
       showAlert,
       setShowAlert
     }}>
+      <Container>
       {
         actualPage === 'login' ? (
           <Login />
@@ -112,6 +114,7 @@ function App() {
           <RegisterClient />
         )
       }
+      </Container>
     </mainContext.Provider >
   );
 }
