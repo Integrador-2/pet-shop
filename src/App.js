@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import mainContext from "./context/context";
 
@@ -34,6 +34,10 @@ function App() {
   });
   const [showAlert, setShowAlert] = useState('none');
   const [showModal, setShowModal] = useState('none');
+
+  useEffect(() => {
+    document.title = "Sistema Pet-shop";
+ }, []);
 
   return (
     <mainContext.Provider value={{
