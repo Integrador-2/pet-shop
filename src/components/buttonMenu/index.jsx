@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 
 import mainContext from "../../context/context";
 
-import { Btn } from './style';
+import { Btn, Marked, Container } from './style';
 
 
-const ButtonMenu = ({ text, origin }) => {
+const ButtonMenu = ({ text, origin, marked }) => {
 
 
-    const { setActualPage } = useContext(mainContext);
+    const { setActualPage } = useContext(mainContext);    
 
     const changePage = (page) => {
         setActualPage(page);
@@ -16,7 +16,10 @@ const ButtonMenu = ({ text, origin }) => {
 
 
     return (
-        <Btn onClick={() => { changePage(origin) }}>{text}</Btn>
+        <Container>
+            <Marked background={marked === origin ? 'yellow' : ''}/>
+            <Btn color={marked === origin ? 'red' : ''} onClick={() => { changePage(origin) }}>{text}</Btn>
+        </Container>
     );
 }
 
