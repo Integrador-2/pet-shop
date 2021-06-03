@@ -26,5 +26,13 @@ export const Btn = styled.button`
 export const Marked = styled.div`
     height: ${px2vw(30)};
     width: ${px2vw(5)};
+    left: 0;
     background: ${props => props.background !== '' ? props.background : ''};
+`;
+
+export const Img = styled.img`
+    width: ${px2vw(35)};
+    height: ${px2vw(50)};
+    margin-left: ${px2vw(15)};
+    padding: 0 0 ${px2vw(20)} 0;
 `;
