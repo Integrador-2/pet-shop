@@ -21,7 +21,7 @@ const GroupButtons = () => {
             <ButtonContainer>
                 <Img src={Logo}/>
                 <ButtonMenu origin="start" text="Início" icon={Start} marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="register" text="Cadastros" icon={Register} marked={actualPage}></ButtonMenu>
+                <ButtonMenu origin="registers" text="Cadastros" icon={Register} marked={actualPage}></ButtonMenu>
                 <ButtonMenu origin="service" text="Serviços" icon={Service} marked={actualPage}></ButtonMenu>
                 <ButtonMenu origin="reversal" text="Estornos" icon={Reversal} marked={actualPage}></ButtonMenu>                
                 <ButtonMenu origin="report" text="Relatórios" icon={Report} marked={actualPage}></ButtonMenu>

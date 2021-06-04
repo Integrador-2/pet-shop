@@ -13,6 +13,7 @@
     --greenButton: #BCE5EF;
     --grey: #F0F0F0;
     --opacity: rgba(0,0,0,0.4);
+    --text-color: #6F5E4D;
 }
 
 @media(min-width: 1080px) {

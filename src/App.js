@@ -21,6 +21,8 @@ import UserTab from './components/userTab';
 
 import './styles/global.css';
 import { Container } from './styles/style';
+import StartScreen from './components/startScreen';
+import RegisterPage from './pages/registerPage';
 
 function App() {
   const [actualPage, setActualPage] = useState('login');
@@ -116,6 +118,15 @@ function App() {
       {
         actualPage === 'registerClient' && (
           <RegisterClient />
+        )
+      }
+      {
+        actualPage === 'start' && (
+          <StartScreen/>
+        )
+      }
+      {actualPage === 'registers' && (
+          <RegisterPage/>        
         )
       }
       </Container>

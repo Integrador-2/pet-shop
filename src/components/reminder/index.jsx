@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import MainContext from "../../context/context";
 
 import { Container, ImgReminder, RemindersOfTheDay, TitleReminder, ReminderContainer, TitleContainer } from "./style";
 
-const Reminder = ({Title, Img, Reminders}) => {
+const Reminder = ({title, img, reminders, link}) => {
+    const { setActualPage } = useContext(MainContext);
+
     return(
-        <Container>
+        <Container onClick={() => link ? setActualPage(link) : ''} linkPage={link ? link : ''}>
             <TitleContainer>
-                <TitleReminder>
-                    {Title}
+                <TitleReminder linkPage={link ? link : ''}>
+                    {title}
                 </TitleReminder>
-                <ImgReminder src={Img}/>                
+                <ImgReminder linkPage={link ? link : ''} src={img}/>
             </TitleContainer>
-            {Reminders && (
+            {reminders && (
                 <ReminderContainer>
-                    {Reminders.map((item) => 
+                    {reminders.map((item) => 
                         <RemindersOfTheDay>{item}</RemindersOfTheDay>
                     )}
                 </ReminderContainer>
