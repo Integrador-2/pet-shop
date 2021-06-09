@@ -27,7 +27,7 @@ export const Marked = styled.div`
     height: ${px2vw(30)};
     width: ${px2vw(5)};
     left: 0;
-    background: ${props => props.background !== '' ? props.background : ''};
+    background-color: ${props => props.background !== '' ? props.background : ''};    
 `;
 
 export const Img = styled.img`

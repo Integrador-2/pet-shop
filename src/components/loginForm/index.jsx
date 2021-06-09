@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import Alert from "../alert/index";
 
@@ -21,16 +21,12 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        setActualPage('service');
+        setActualPage('start');
     }
-
 
     return (
         <Container>
-            <Alert showAlert={showAlert} />
-            <ImageContainer>
-                <Image src={Img} />
-            </ImageContainer>
+            <Alert showAlert={showAlert} />            
             <LoginContainer>
                 <ImgContainer>
                     <Logo src={ImgLogo} />

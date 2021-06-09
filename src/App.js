@@ -24,6 +24,9 @@ import { Container } from './styles/style';
 import StartScreen from './components/startScreen';
 import RegisterPage from './pages/registerPage';
 
+import BackgroundLoginImage from "./assets/backgroundLogin.png";
+import BackgroundImage from "./assets/Fundo.png";
+
 function App() {
   const [actualPage, setActualPage] = useState('login');
 
@@ -39,7 +42,18 @@ function App() {
 
   useEffect(() => {
     document.title = "Sistema Pet-shop";
- }, []);
+  }, []);
+
+  useEffect(() => {
+    if (actualPage === 'login') {
+      document.body.style.backgroundImage = `url(${BackgroundLoginImage})`;
+    }
+    if (actualPage !== 'login') {
+      document.body.style.backgroundImage = `url(${BackgroundImage})`;
+    }
+    document.body.style.backgroundSize =  'cover'; 
+  }, [actualPage])
+
 
   return (
     <mainContext.Provider value={{
@@ -52,13 +66,14 @@ function App() {
       showAlert,
       setShowAlert
     }}>
+      {actualPage !== 'login' && (
+        <GroupButtons />
+      )}
       <Container>
       {
-        actualPage === 'login' ? (
+        actualPage === 'login' && (
           <Login />
-        ) : (
-          <GroupButtons />
-        )
+        )       
       }
       {
         actualPage === 'client' && (

@@ -184,22 +184,7 @@ export const fields = [{
         { 'value': 'Cartão de Crédito' },
         { 'value': 'Pix' }
     ]
-}, {
-    'origin': 'service',
-    'label': 'Data de Entrada:',
-    'id': 'entry_date_service',
-    'type': 'date'
-}, {
-    'origin': 'service',
-    'label': 'Data de Saída:',
-    'id': 'departure_date_service',
-    'type': 'date'
-}, {
-    'origin': 'service',
-    'label': 'Data de Emissão:',
-    'id': 'emission_date_service',
-    'type': 'date'
-}, {
+},{
     'origin': 'service',
     'label': 'Cliente:',
     'id': 'client_service',
@@ -209,11 +194,37 @@ export const fields = [{
     ]
 }, {
     'origin': 'service',
-    'label': 'Imagem:',
-    'id': 'image_service',
-    'type': 'file'
+    'label': '',
+    'id': '',
+    'type': 'check'
+},{
+    'origin': 'service',
+    'label': 'Data de Entrada do Animal:',
+    'id': 'entry_date_service',
+    'type': 'date',
+    'checkDepends': 'true'
 }, {
+    'origin': 'service',
+    'label': 'Data de Saída do Animal:',
+    'id': 'departure_date_service',
+    'type': 'date',
+    'checkDepends': 'true'
+},{
+    'origin': 'service',
+    'label': 'Data de agendamento:',
+    'id': 'scheduling_date',
+    'type': 'date',
+    'checkDepends': 'true'
+},{
+    'origin': 'service',
+    'label': 'Hora do agendamento:',
+    'id': 'scheduling_hour',
+    'type': 'time',
+    'checkDepends': 'true'
+},
 
+
+{
     'origin': 'reversal',
     'label': 'Nº do Serviço:',
     'id': 'service_reversal',

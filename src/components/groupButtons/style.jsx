@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import px2vw from "../../utils/px2vw";
 
 export const Container = styled.div`        
-    display: fixed;    
-    height: 100vh;
-    justify-content: center;
+    position: fixed;        
+    height: 100vh;    
     background: var(--purple);
-    width: ${px2vw(240)};
+    width: ${px2vw(240)};    
 `;
 
 export const ButtonContainer = styled.div`

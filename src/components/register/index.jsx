@@ -10,7 +10,8 @@ import {
     Field, DivFields, DivButtonForm, ButtonForm, Select, Option,
     ProductsListContainer, ProductsListButtonsContainer,
     ProductsList, Line, Cell, HeadCell, ProductListDiv, TextAreaField,
-    Image, FileInput, FileInputContainer, ImageContainer, TableButton
+    Image, FileInput, FileInputContainer, ImageContainer, TableButton, 
+    CheckContainer, Check, CheckLabel
 } from './style';
 import Modal from '../modal/index';
 import Alert from '../alert/index';
@@ -134,9 +135,9 @@ const Register = ({ origin, title }) => {
                 <DivFields columns={columns}>
                     {
                         fields.map((item, index) => item.origin === origin &&
-                            <FieldContainer key={index}>
-                                <FieldLabel>{item.label}</FieldLabel>
-                                {(item.type !== 'select' && item.type !== 'textarea' && item.type !== 'file') && (
+                            <FieldContainer key={index}>                                
+                                <FieldLabel>{item.label}</FieldLabel>                                
+                                {(item.type !== 'select' && item.type !== 'textarea' && item.type !== 'file' && item.type !== 'check') && (
                                     <Field columns={columns} id={item.id} type={item.type} />
                                 )}
                                 {item.type === 'select' && (

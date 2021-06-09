@@ -29,7 +29,7 @@ export const Image = styled.img`
 `;
 
 export const LoginContainer = styled.div`
-    width: 40vw;
+    width: 80vw;
     display: flex;
     flex-direction: column;
     justify-content: center;

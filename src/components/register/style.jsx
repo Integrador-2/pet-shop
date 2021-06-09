@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const DivTitle = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: ${px2vw(45)};
+    margin-top: ${px2vw(100)};
 
 `;
 
@@ -31,7 +31,7 @@ export const FieldContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
-    margin: 25px 0 0 0;
+    margin: 25px 0 0 ${px2vw(80)};
 `;
 
 export const FieldLabel = styled.label`
@@ -40,7 +40,7 @@ export const FieldLabel = styled.label`
 
 export const Field = styled.input`
     width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
-    height: ${px2vw(40)};
+    height: ${px2vw(40)};    
     border-radius: 20px;
     border-color: black;
 `;
@@ -52,7 +52,7 @@ export const TextAreaField = styled(Field)`
 
 export const Select = styled.select`
     width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
-    height: ${px2vw(40)};
+    height: ${px2vw(40)};    
     border-radius: 20px;
     border-color: black;
 `;
@@ -173,4 +173,17 @@ export const TableButton = styled(Btn)`
     & label {
         font-size: 10pt;
     }
+`;
+
+export const CheckContainer = styled.div`
+    display: flex;
+    width: ${px2vw(1000)};
+    margin-top: ${px2vw(30)};
+`;
+
+export const Check = styled.input`    
+`;
+
+export const CheckLabel = styled(FieldLabel)`
+    margin-left: ${px2vw(30)};
 `;
