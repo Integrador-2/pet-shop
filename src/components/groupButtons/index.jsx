@@ -30,14 +30,4 @@ const GroupButtons = () => {
     );
 }
 
-/*
-                <ButtonMenu origin="service" text="Serviço" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="client" text="Cliente" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="product" text="Produtos" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="employee" text="Funcionário" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="suplier" text="Fornecedor" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="reversal" text="Estornos" marked={actualPage}></ButtonMenu>
-                <ButtonMenu origin="report" text="Relatórios" marked={actualPage}></ButtonMenu>
-*/
-
 export default GroupButtons;

@@ -112,33 +112,33 @@ export const fields = [{
     'id': 'image_product',
     'type': 'input'
 }, {
-    'origin': 'suplier',
+    'origin': 'supplier',
     'label': 'Nome do Fornecedor:',
-    'id': 'name_suplier',
+    'id': 'name_supplier',
     'type': 'input'
 }, {
-    'origin': 'suplier',
+    'origin': 'supplier',
     'label': 'Entidade:',
-    'id': 'entity_suplier',
+    'id': 'entity_supplier',
     'type': 'select',
     'options': [
         { 'value': 'pet-shop' },
         { 'value': 'armazen' }
     ]
 }, {
-    'origin': 'suplier',
+    'origin': 'supplier',
     'label': 'Endereço:',
-    'id': 'address_suplier',
+    'id': 'address_supplier',
     'type': 'input'
 }, {
-    'origin': 'suplier',
+    'origin': 'supplier',
     'label': 'Telefone:',
-    'id': 'phone_suplier',
+    'id': 'phone_supplier',
     'type': 'input'
 }, {
-    'origin': 'suplier',
+    'origin': 'supplier',
     'label': 'E-mail:',
-    'id': 'email_suplier',
+    'id': 'email_supplier',
     'type': 'input'
 }, {
 

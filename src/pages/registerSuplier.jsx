@@ -4,7 +4,7 @@ import Register from '../components/register';
 
 const RegisterSuplier = () => {
     return (
-        <Register origin="suplier" title="Para cadastrar o fornecedor, preencha todos os campos" />
+        <Register origin="supplier" title="Para cadastrar o fornecedor, preencha todos os campos" />
     );
 }
 

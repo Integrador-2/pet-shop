@@ -20,7 +20,7 @@ const RegisterPage = () => {
                 <Reminder link="employee" title="CADASTRAR FUNCIONÁRIO" img={Funcionario}/>                
             </ReminderContainer>
             <ReminderContainer>
-                <Reminder link="suplier" title="CADASTRAR FORNECEDOR" img={Fornecedor}/>
+                <Reminder link="supplier" title="CADASTRAR FORNECEDOR" img={Fornecedor}/>
                 <Reminder link="product" title="CADASTRAR PRODUTO" img={Produto}/>
             </ReminderContainer>
         </Container>

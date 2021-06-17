@@ -41,7 +41,6 @@ export const FieldLabel = styled.label`
 export const Field = styled.input`
     width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
     height: ${px2vw(40)};    
-    border-radius: 20px;
     border-color: black;
 `;
 
@@ -53,7 +52,6 @@ export const TextAreaField = styled(Field)`
 export const Select = styled.select`
     width: ${props => props.columns === 1 ? px2vw(1000) : px2vw(450)};
     height: ${px2vw(40)};    
-    border-radius: 20px;
     border-color: black;
 `;
 
@@ -132,6 +130,7 @@ export const Line = styled.tr`
 
 export const Cell = styled.td`
     border: solid;
+    padding-left: ${px2vw(15)};
 `;
 
 export const HeadCell = styled.th`

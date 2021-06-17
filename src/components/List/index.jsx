@@ -21,14 +21,15 @@ const List = ({ origin, title }) => {
     const { setActualPage, showAlert, setShowAlert } = useContext(mainContext);
 
     const handleInsert = () => {
+        console.log(origin);
         if (origin === 'client') {
             setActualPage('registerClient');
         }
         if (origin === 'employee') {
             setActualPage('registerEmployee');
         }
-        if (origin === 'suplier') {
-            setActualPage('registerSuplier');
+        if (origin === 'supplier') {
+            setActualPage('registerSupplier');
         }
         if (origin === 'service') {
             setActualPage('registerService');

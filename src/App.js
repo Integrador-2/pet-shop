@@ -91,7 +91,7 @@ function App() {
         )
       }
       {
-        actualPage === 'suplier' && (
+        actualPage === 'supplier' && (
           <ListSupplier />
         )
       }
@@ -121,7 +121,7 @@ function App() {
         )
       }
       {
-        actualPage === 'registerSuplier' && (
+        actualPage === 'registerSupplier' && (
           <RegisterSuplier />
         )
       }
