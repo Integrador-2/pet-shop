@@ -33,7 +33,6 @@ const Register = ({ origin, title }) => {
     const [columns, setColumns] = useState(2);
     const [showDetails, setShowDetails] = useState('none');
 
-
     useEffect(() => {
         if (alertConfig.response) {
             if (waitingResponse === 'image') {

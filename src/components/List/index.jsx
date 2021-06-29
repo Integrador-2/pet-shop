@@ -21,21 +21,20 @@ const List = ({ origin, title }) => {
     const {showAlert, handleChangePage } = useContext(mainContext);
 
     const handleInsert = () => {
-        console.log(origin);
         if (origin === 'client') {
             handleChangePage('client/edit/');
         }
         if (origin === 'employee') {
-            handleChangePage('/employee/register/');
+            handleChangePage('employee/register/');
         }
         if (origin === 'supplier') {
-            handleChangePage('/supplier/register');
+            handleChangePage('supplier/register');
         }
         if (origin === 'service') {
             handleChangePage('service/register');
         }
         if (origin === 'product') {
-            handleChangePage('/product/register/');
+            handleChangePage('product/register/');
         }
     }
 

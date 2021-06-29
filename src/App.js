@@ -44,6 +44,12 @@ function App() {
   const [showAlert, setShowAlert] = useState('none');
   const [showModal, setShowModal] = useState('none');
 
+  const [itemName, setItemName] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [dateLaunch, setDateLaunc] = useState('');
+  const [type, setType] = useState('');
+  const [price, setPrice] = useState('');
+
   const handleChangePage = (page) => {
     window.location.assign("/"+page);
   }
