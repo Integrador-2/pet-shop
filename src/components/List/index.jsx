@@ -18,7 +18,7 @@ const List = ({ origin, title }) => {
 
     const [selectedLine, setSelectedLine] = useState('');
 
-    const { setActualPage, showAlert, setShowAlert, handleChangePage } = useContext(mainContext);
+    const {showAlert, handleChangePage } = useContext(mainContext);
 
     const handleInsert = () => {
         console.log(origin);
