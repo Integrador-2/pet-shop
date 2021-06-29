@@ -18,24 +18,24 @@ const List = ({ origin, title }) => {
 
     const [selectedLine, setSelectedLine] = useState('');
 
-    const { setActualPage, showAlert, setShowAlert } = useContext(mainContext);
+    const { setActualPage, showAlert, setShowAlert, handleChangePage } = useContext(mainContext);
 
     const handleInsert = () => {
         console.log(origin);
         if (origin === 'client') {
-            setActualPage('registerClient');
+            handleChangePage('client/edit/');
         }
         if (origin === 'employee') {
-            setActualPage('registerEmployee');
+            handleChangePage('/employee/register/');
         }
         if (origin === 'supplier') {
-            setActualPage('registerSupplier');
+            handleChangePage('/supplier/register');
         }
         if (origin === 'service') {
-            setActualPage('registerService');
+            handleChangePage('service/register');
         }
         if (origin === 'product') {
-            setActualPage('registerProduct');
+            handleChangePage('/product/register/');
         }
     }
 

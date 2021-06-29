@@ -19,7 +19,6 @@ export const ModalScreen = styled.div`
     margin: auto;
     padding: 10px;
     z-index: 2;
-    border-radius: 15px;
     border-style: solid;
     background: var(--purple);
     display: flex;

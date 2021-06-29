@@ -11,7 +11,7 @@ export const AlertContainer = styled(Container)`
 export const Modal = styled(ModalScreen)`
     width: ${px2vw(500)};
     height: ${px2vw(200)};
-    background: var(--gradient);
+    background: var(--purple);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,7 +24,6 @@ export const Button = styled.button`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 15px;
     margin: 0 ${px2vw(4)} 0 0;
 
     &:hover {

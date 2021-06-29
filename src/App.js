@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+import { BrowserRouter, Switch, Route, useHistory, Redirect } from 'react-router-dom';
+// import { useHistory } from 'react-router';
+
 import mainContext from "./context/context";
 
 import GroupButtons from './components/groupButtons';
@@ -28,7 +31,8 @@ import BackgroundLoginImage from "./assets/backgroundLogin.png";
 import BackgroundImage from "./assets/Fundo.png";
 
 function App() {
-  const [actualPage, setActualPage] = useState('login');
+  let history = useHistory();
+  const [actualPage, setActualPage] = useState();
 
   const [alertConfig, setAlertConfig] = useState({
     'type': '',
@@ -40,18 +44,24 @@ function App() {
   const [showAlert, setShowAlert] = useState('none');
   const [showModal, setShowModal] = useState('none');
 
+  const handleChangePage = (page) => {
+    window.location.assign("/"+page);
+  }
+
   useEffect(() => {
     document.title = "Sistema Pet-shop";
   }, []);
 
   useEffect(() => {
-    if (actualPage === 'login') {
+    document.body.style.backgroundSize =  'cover';
+    if (window.location.pathname === "/") {
       document.body.style.backgroundImage = `url(${BackgroundLoginImage})`;
     }
-    if (actualPage !== 'login') {
+    if (window.location.pathname !== "/") {
       document.body.style.backgroundImage = `url(${BackgroundImage})`;
     }
-    document.body.style.backgroundSize =  'cover'; 
+    const pageWithoutBar = window.location.pathname.split("/");
+    setActualPage(pageWithoutBar[1]);
   }, [actualPage])
 
 
@@ -64,86 +74,38 @@ function App() {
       setAlertConfig,
       alertConfig,
       showAlert,
-      setShowAlert
+      setShowAlert,
+      handleChangePage,
+      history
     }}>
-      {actualPage !== 'login' && (
+      {window.location.pathname !== "/" &&
         <GroupButtons />
-      )}
+      }
       <Container>
-      {
-        actualPage === 'login' && (
-          <Login />
-        )       
-      }
-      {
-        actualPage === 'client' && (
-          <ListClient />
-        )
-      }
-      {
-        actualPage === 'employee' && (
-          <ListEmployee />
-        )
-      }
-      {
-        actualPage === 'product' && (
-          <ListProduct />
-        )
-      }
-      {
-        actualPage === 'supplier' && (
-          <ListSupplier />
-        )
-      }
-      {
-        actualPage === 'service' && (
-          <ListService />
-        )
-      }
-      {
-        actualPage === 'reversal' && (
-          <RegisterReversal />
-        )
-      }
-      {
-        actualPage === 'report' && (
-          <RegisterReport />
-        )
-      }
-      {
-        actualPage === 'registerEmployee' && (
-          <RegisterEmployee />
-        )
-      }
-      {
-        actualPage === 'registerProduct' && (
-          <RegisterProduct />
-        )
-      }
-      {
-        actualPage === 'registerSupplier' && (
-          <RegisterSuplier />
-        )
-      }
-      {
-        actualPage === 'registerService' && (
-          <RegisterService />
-        )
-      }
-      {
-        actualPage === 'registerClient' && (
-          <RegisterClient />
-        )
-      }
-      {
-        actualPage === 'start' && (
-          <StartScreen/>
-        )
-      }
-      {actualPage === 'registers' && (
-          <RegisterPage/>        
-        )
-      }
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact={true} component={Login}/>
+            <Route path="/client" exact={true} component={ListClient}/>
+            <Route path="/employee" exact={true} component={ListEmployee}/>
+            <Route path="/product" exact={true} component={ListProduct}/>
+            <Route path="/supplier" exact={true} component={ListSupplier}/>
+            <Route path="/service" exact={true} component={ListService}/>
+            <Route path="/reversal" exact={true} component={RegisterReversal}/>
+            <Route path="/report" exact={true} component={RegisterReport}/>
+            <Route path="/client/edit/" exact={true} component={RegisterClient}/>
+            <Route path="/client/register/" exact={true} component={RegisterClient}/>
+            <Route path="/employee/edit/" exact={true} component={RegisterEmployee}/>
+            <Route path="/employee/register/" exact={true} component={RegisterEmployee}/>
+            <Route path="/product/edit/" exact={true} component={RegisterProduct}/>
+            <Route path="/product/register/" exact={true} component={RegisterProduct}/>
+            <Route path="/supplier/edit" exact={true} component={RegisterSuplier}/>
+            <Route path="/supplier/register" exact={true} component={RegisterSuplier}/>
+            <Route path="/service/edit" exact={true} component={RegisterService}/>
+            <Route path="/service/register" exact={true} component={RegisterService}/>
+            <Route path="/start" exact={true} component={StartScreen}/>
+            <Route path="/registers" exact={true} component={RegisterPage}/>
+          </Switch>
+        </BrowserRouter>
       </Container>
     </mainContext.Provider >
   );

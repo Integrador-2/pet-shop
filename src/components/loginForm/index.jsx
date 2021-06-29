@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
+import { Redirect, Route } from "react-router-dom";
 
 import Alert from "../alert/index";
 
@@ -15,13 +16,13 @@ import mainContext from "../../context/context";
 
 const LoginForm = () => {
 
-    const { setActualPage, showAlert, setShowAlert } = useContext(mainContext);
+    const {showAlert, handleChangePage, history } = useContext(mainContext);
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        setActualPage('start');
+        handleChangePage('start', history);
     }
 
     return (
@@ -35,11 +36,11 @@ const LoginForm = () => {
                 <LabelContainer>
                     <Span><b>Login:</b></Span>
                 </LabelContainer>
-                <LoginInput value={login} />
+                <LoginInput value={login} onChange={(e) => setLogin(e.target.value)} />
                 <LabelContainer>
                     <Span><b>Senha:</b></Span>
                 </LabelContainer>
-                <LoginInput type="password" value={password} />
+                <LoginInput type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <ButtonContainer>
                     <Button onClick={() => handleLogin()}><b>Entrar</b></Button>
                 </ButtonContainer>

@@ -8,6 +8,7 @@ import ReminderImg from "../../assets/Lembrete.png";
 import ProductsImg from "../../assets/produtos.png";
 
 const StartScreen = () => {
+    console.log("entrou");
     const reminders = [
         'Serviço 01',
         'Serviço 02',

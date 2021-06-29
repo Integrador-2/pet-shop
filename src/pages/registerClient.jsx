@@ -4,7 +4,9 @@ import Register from '../components/register';
 
 const RegisterClient = () => {
     return (
-        <Register origin="client" title="Para cadastrar o cliente, preencha todos os campos" />
+        <>
+            <Register origin="client" title="Para cadastrar o cliente, preencha todos os campos" />
+        </>
     );
 }
 

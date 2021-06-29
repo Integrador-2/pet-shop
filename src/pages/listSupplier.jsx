@@ -4,7 +4,9 @@ import List from '../components/List';
 
 const ListSupplier = () => {
     return (
-        <List origin="supplier" title="Lista de todos fornecedores" />
+        <>
+            <List origin="supplier" title="Lista de todos fornecedores" />
+        </>
     );
 }
 

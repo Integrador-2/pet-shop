@@ -67,14 +67,13 @@ export const DivButtonForm = styled.div`
 export const ButtonForm = styled.button`
     width: ${px2vw(200)};
     height: ${px2vw(45)};
-    border-radius: 35px;
     font-size: 15pt;
-    background: var(--gradient);
+    background: var(--purple);
     margin: ${px2vw(45)};
+    border-style: none;
 
     &:hover {
         color: red;
-        opacity: 0.8;
     }
 `;
 
@@ -99,7 +98,6 @@ export const ProductsListButtonsContainer = styled.div`
 
 export const ProductListDiv = styled.div`
     margin: ${px2vw(15)} 0 0 ${px2vw(30)};
-    background: var(--purple);
     height: ${px2vw(200)};
     width: ${px2vw(990)};
     border: solid;
@@ -185,4 +183,15 @@ export const Check = styled.input`
 
 export const CheckLabel = styled(FieldLabel)`
     margin-left: ${px2vw(30)};
+`;
+
+export const ButtonReport = styled(ButtonForm)`
+    width: ${px2vw(80)};
+    height: ${px2vw(35)};
+    margin: ${px2vw(5)};
+    font-size: 1rem;
+
+    &:hover, & label:hover {
+        cursor: pointer;
+    }
 `;

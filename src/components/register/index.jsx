@@ -10,8 +10,8 @@ import {
     Field, DivFields, DivButtonForm, ButtonForm, Select, Option,
     ProductsListContainer, ProductsListButtonsContainer,
     ProductsList, Line, Cell, HeadCell, ProductListDiv, TextAreaField,
-    Image, FileInput, FileInputContainer, ImageContainer, TableButton, 
-    CheckContainer, Check, CheckLabel
+    Image, FileInput, FileInputContainer, ImageContainer, TableButton,
+    ButtonReport
 } from './style';
 import Modal from '../modal/index';
 import Alert from '../alert/index';
@@ -20,6 +20,7 @@ import AdvancedFilter from '../advancedFilter/index';
 import { fields, TableColumns } from '../../data/index';
 
 import px2vw from "../../utils/px2vw";
+import ReportPopup from "../reportPopup";
 
 const Register = ({ origin, title }) => {
     const { actualPage, setShowAlert, showAlert, showModal, setShowModal,
@@ -30,8 +31,8 @@ const Register = ({ origin, title }) => {
     const [image, setImage] = useState('');
     const [waitingResponse, setWaitingResponse] = useState('');
     const [columns, setColumns] = useState(2);
+    const [showDetails, setShowDetails] = useState('none');
 
-    console.log(origin);
 
     useEffect(() => {
         if (alertConfig.response) {
@@ -126,6 +127,7 @@ const Register = ({ origin, title }) => {
             <Container>
                 <Alert showAlert={showAlert} />
                 <Modal showModal={showModal} />
+                <ReportPopup show={showDetails}/>
                 <DivTitle>
                     <Title>{title}</Title>
                 </DivTitle>
@@ -164,7 +166,7 @@ const Register = ({ origin, title }) => {
                         )
                     }
                 </DivFields>
-                {actualPage === 'registerService' &&
+                {actualPage === 'service' &&
                     <ProductsListContainer>
                         <ProductsListButtonsContainer>
                             <ButtonForm onClick={() => showItens('insert')}>Inserir</ButtonForm>
@@ -206,7 +208,7 @@ const Register = ({ origin, title }) => {
                                         <Line key={index} id={item.code} onClick={() => setProduct(item.code)} selected={(item.code === selectedProduct ? true : false)}>
                                             <HeadCell width={px2vw(200)} id={item.code}>{item.code}</HeadCell>
                                             <HeadCell width={px2vw(650)} id={item.code}>{item.name}</HeadCell>
-                                            <HeadCell width={px2vw(150)} id={item.code}><TableButton><label>Detalhes</label></TableButton></HeadCell>
+                                            <HeadCell width={px2vw(150)} id={item.code}><ButtonReport onClick={() => setShowDetails('flex')}>Detalhes</ButtonReport></HeadCell>
                                         </Line>
                                     )}
                                 </tbody>

@@ -5,7 +5,9 @@ import Register from '../components/register';
 const RegisterEmployee = () => {
     console.log("entrou");
     return (
-        <Register origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
+        <>
+            <Register origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
+        </>
     );
 }
 

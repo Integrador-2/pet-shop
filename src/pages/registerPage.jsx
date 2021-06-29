@@ -10,20 +10,20 @@ import Fornecedor from "../assets/fornecedores.png";
 import Produto from "../assets/produtos.png";
 
 const RegisterPage = () => {
-    const { setActualPage } = useContext(MainContext);
-
     return(
-        <Container>
-            <Title>Selecione o tipo de cadastro a ser realizado</Title>
-            <ReminderContainer>
-                <Reminder link="client" title="CADASTRAR CLIENTE" img={Cliente}/>
-                <Reminder link="employee" title="CADASTRAR FUNCIONÁRIO" img={Funcionario}/>                
-            </ReminderContainer>
-            <ReminderContainer>
-                <Reminder link="supplier" title="CADASTRAR FORNECEDOR" img={Fornecedor}/>
-                <Reminder link="product" title="CADASTRAR PRODUTO" img={Produto}/>
-            </ReminderContainer>
-        </Container>
+        <>
+            <Container>
+                <Title>Selecione o tipo de cadastro a ser realizado</Title>
+                <ReminderContainer>
+                    <Reminder link="client" title="CADASTRAR CLIENTE" img={Cliente}/>
+                    <Reminder link="employee" title="CADASTRAR FUNCIONÁRIO" img={Funcionario}/>                
+                </ReminderContainer>
+                <ReminderContainer>
+                    <Reminder link="supplier" title="CADASTRAR FORNECEDOR" img={Fornecedor}/>
+                    <Reminder link="product" title="CADASTRAR PRODUTO" img={Produto}/>
+                </ReminderContainer>
+            </Container>
+        </>
     );
 }
 

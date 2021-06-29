@@ -6,7 +6,7 @@ export const Container = styled.div`
     position: fixed;        
     height: 100vh;    
     background: var(--purple);
-    width: ${px2vw(240)};
+    width: ${px2vw(290)};
     border-style: solid;
     border-width: 0 ${px2vw(7)} 0 0; 
     border-color: #000;
