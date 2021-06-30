@@ -71,24 +71,6 @@ const RegisterProductComponent = ({ origin, title }) => {
       }
     }, [entityObject])
 
-    const handleChange = (e) => {
-      setImage(URL.createObjectURL(e.target.files[0]));
-    }
-
-    const removeImage = () => {
-        if (image) {
-            setAlertConfig({
-                'type': 'confirm',
-                'title': 'Tem certeza que deseja efetuar essa ação?',
-                'text': 'Tem certeza que deseja excluir a imagem?',
-                'show': 'flex',
-                'response': 'false'
-            });
-
-            setWaitingResponse('image');
-        }
-    }
-
     const handleInsert = () => {
       if (!name) {
         setAlertConfig({

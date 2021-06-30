@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Register from '../components/register';
+import RegisterServiceComponent from '../components/registerServiceComponent';
 
 const RegisterService = () => {
     return (
         <>
-            <Register origin="service" title="Para cadastrar o serviço, preencha todos os campos" />
+            <RegisterServiceComponent origin="service" title="Para cadastrar o serviço, preencha todos os campos" />
         </>
     );
 }
