@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Register from '../components/register';
+import RegisterEmployeeComponent from '../components/registerEmployeeComponent';
 
 const RegisterEmployee = () => {
     console.log("entrou");
     return (
         <>
-            <Register origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
+            <RegisterEmployeeComponent origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
         </>
     );
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Register from '../components/register';
+import RegisterSupplierComponent from '../components/registerSupplierComponent';
 
 const RegisterSuplier = () => {
     return (
         <>
-            <Register origin="supplier" title="Para cadastrar o fornecedor, preencha todos os campos" />
+            <RegisterSupplierComponent origin="supplier" title="Para cadastrar o fornecedor, preencha todos os campos" />
         </>
     );
 }

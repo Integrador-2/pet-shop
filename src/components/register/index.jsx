@@ -32,12 +32,18 @@ const Register = ({ origin, title }) => {
     const [waitingResponse, setWaitingResponse] = useState('');
     const [columns, setColumns] = useState(2);
     const [showDetails, setShowDetails] = useState('none');
+    const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
         if (alertConfig.response) {
             if (waitingResponse === 'image') {
                 if (alertConfig.response === 'true') {
                     setImage('');
+                }
+            }
+            if (waitingResponse === 'delete') {
+                if (alertConfig.response === 'true') {
+
                 }
             }
         }
@@ -121,7 +127,9 @@ const Register = ({ origin, title }) => {
             setSaleProducts,
             selectedProduct,
             setShowModal,
-            operation
+            operation,
+            isDeleting,
+            setIsDeleting
         }}>
             <Container>
                 <Alert showAlert={showAlert} />

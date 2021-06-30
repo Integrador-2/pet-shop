@@ -1,11 +1,11 @@
 import React from 'react';
 
-import List from '../components/List';
+import ListSupplierComponent from '../components/listSupplierComponent';
 
 const ListSupplier = () => {
     return (
         <>
-            <List origin="supplier" title="Lista de todos fornecedores" />
+            <ListSupplierComponent origin="supplier" title="Lista de todos fornecedores" />
         </>
     );
 }

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
+import RegisterProductComponent from '../components/registerProductComponent';
 
-import Register from '../components/register';
-
-const RegisterProduct = () => {
+const RegisterProduct = (props) => {    
     return (
         <>
-            <Register origin="product" title="Para cadastrar o produto, preencha todos os campos" />
+            <RegisterProductComponent product={props.match.params.id} title="Para cadastrar o produto, preencha todos os campos" />
         </>
     );
 }

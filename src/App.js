@@ -19,6 +19,7 @@ import RegisterProduct from './pages/registerProduct';
 import RegisterClient from './pages/registerClient';
 import RegisterSuplier from './pages/registerSuplier';
 import RegisterService from './pages/registerService';
+import RegisterAnimals from './pages/registerAnimals';
 import UserTab from './components/userTab';
 
 
@@ -104,12 +105,14 @@ function App() {
             <Route path="/employee/register/" exact={true} component={RegisterEmployee}/>
             <Route path="/product/edit/" exact={true} component={RegisterProduct}/>
             <Route path="/product/register/" exact={true} component={RegisterProduct}/>
+            <Route path="/product/register/:id" exact={true} component={RegisterProduct}/>
             <Route path="/supplier/edit" exact={true} component={RegisterSuplier}/>
             <Route path="/supplier/register" exact={true} component={RegisterSuplier}/>
             <Route path="/service/edit" exact={true} component={RegisterService}/>
             <Route path="/service/register" exact={true} component={RegisterService}/>
             <Route path="/start" exact={true} component={StartScreen}/>
             <Route path="/registers" exact={true} component={RegisterPage}/>
+            <Route path="/client/:id/animals/" exact={true} component={RegisterAnimals}/>
           </Switch>
         </BrowserRouter>
       </Container>

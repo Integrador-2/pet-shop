@@ -305,7 +305,7 @@ export const ListFields = [{
     'origin': 'client',
     'field': 'code',
     'title': 'Código',
-    'width': '150'
+    'width': '150',
 }, {
     'origin': 'client',
     'field': 'name',
@@ -354,27 +354,32 @@ export const ListFields = [{
     'origin': 'product',
     'field': 'code',
     'title': 'Código',
-    'width': '100'
+    'width': '100',
+    'dbname': 'id'
 }, {
     'origin': 'product',
     'field': 'name',
     'title': 'Nome',
-    'width': '500'
+    'width': '500',
+    'dbname': 'descricao'
 }, {
     'origin': 'product',
     'field': 'sector',
     'title': 'Tipo',
-    'width': '200'
+    'width': '200',
+    'dbname': 'tipo_produto'
 }, {
     'origin': 'product',
     'field': 'price',
     'title': 'Preço',
-    'width': '80'
+    'width': '80',
+    'dbname': 'preco'
 }, {
     'origin': 'product',
     'field': 'quantity',
     'title': 'Estoque',
-    'width': '100'
+    'width': '100',
+    'dbname': 'quantidade'
 },
 
 {
