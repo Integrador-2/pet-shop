@@ -2,11 +2,10 @@ import React from 'react';
 
 import RegisterEmployeeComponent from '../components/registerEmployeeComponent';
 
-const RegisterEmployee = () => {
-    console.log("entrou");
+const RegisterEmployee = (props) => {    
     return (
         <>
-            <RegisterEmployeeComponent origin="employee" title="Para cadastrar o funcionário, preencha todos os campos" />
+            <RegisterEmployeeComponent employee={props.match.params.id} title="Para cadastrar o funcionário, preencha todos os campos" />
         </>
     );
 }

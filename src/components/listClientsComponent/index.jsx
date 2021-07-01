@@ -15,29 +15,30 @@ import px2vw from "../../utils/px2vw";
 import mainContext from "../../context/context";
 
 
-const ListSupplierComponent = ({ origin, title }) => {
+const ListClientsComponent = ({ origin, title }) => {
 
-    useEffect(() => {
-        axios.post(`http://localhost/petshop/pet-shop/src/api/fornecedores/getAll`, {                    
-        }).then((response) => {
-            setValues(response.data.dados);
-        });
-    }, [])
-
+    
     const [values, setValues] = useState();
-
+    
     const [selectedLine, setSelectedLine] = useState('');
 
     const [waitingResponse, setWaitingResponse] = useState(false);
-
+    
     const {showAlert, handleChangePage, setAlertConfig } = useContext(mainContext);
 
+    useEffect(() => {
+        axios.post(`http://localhost/api/clientes/getAllComEntidades`, {
+        }).then((response) => {
+            setValues(response.data.dados);     
+        });        
+    }, [])
+
     const handleInsert = () => {
-        handleChangePage('supplier/register/');
+        handleChangePage('client/register/');
     }
 
     const handleEdit = () => {
-        handleChangePage(`supplier/register/${selectedLine}`);
+        handleChangePage(`clients/register/${selectedLine}`);
     }
 
     const handleDelete = () => {
@@ -63,18 +64,18 @@ const ListSupplierComponent = ({ origin, title }) => {
                     <Table height={50 * 3}>
                         <tbody>
                             <TableLine>                                                                    
-                                <HeadCell width="100">Código</HeadCell>
-                                <HeadCell width="500">Nome</HeadCell>
-                                <HeadCell width="250">E-mail</HeadCell>
-                                <HeadCell width="150">Telefone</HeadCell>
+                                <HeadCell width="125">Código</HeadCell>
+                                <HeadCell width="525">Nome</HeadCell>
+                                <HeadCell width="175">Telefone</HeadCell>
+                                <HeadCell width="140">Gênero</HeadCell>                                
                             </TableLine>
                             {values &&
                             values.map((item, key) =>                                                                
                                 <TableLine onClick={() => setSelectedLine(item.id)} selected={selectedLine === item.id ? true : false}>                                    
                                     <Cell id={item.id}>{item.id}</Cell>                                    
                                     <Cell id={item.id}>{item.nome}</Cell>                                    
-                                    <Cell id={item.id}>{item.email}</Cell>                                    
                                     <Cell id={item.id}>{item.telefone}</Cell>                                    
+                                    <Cell id={item.id}>{item.genero}</Cell>                                                                        
                                 </TableLine>
                             )}
                         </tbody>
@@ -82,7 +83,7 @@ const ListSupplierComponent = ({ origin, title }) => {
                 </TableContainer>
                 <ProductsListButtonsContainer>
                     <ButtonForm onClick={() => handleInsert()}>Inserir</ButtonForm>
-                    <ButtonForm>Editar onClick={() => handleEdit()}</ButtonForm>
+                    <ButtonForm onClick={() => handleEdit()}>Editar</ButtonForm>
                     <ButtonForm>Remover</ButtonForm>
                 </ProductsListButtonsContainer>
             </ProductsListContainer>
@@ -90,4 +91,4 @@ const ListSupplierComponent = ({ origin, title }) => {
     );
 }
 
-export default ListSupplierComponent;
+export default ListClientsComponent;

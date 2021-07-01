@@ -28,6 +28,8 @@ const RegisterClientComponent = ({ origin, title, client }) => {
     const [idEntity, setIdEntity] = useState("");
     const [idClient, setIdClient] = useState(client);
 
+    const [doing, setDoing] = useState(client ? 'edit' : 'insert');
+
     useEffect(() => {
         if (alertConfig.response) {
             if (waitingResponse === 'image') {

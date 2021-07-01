@@ -2,10 +2,10 @@ import React from 'react';
 
 import RegisterClientComponent from '../components/registerClientComponent';
 
-const RegisterClient = () => {
+const RegisterClient = (props) => {
     return (
         <>
-            <RegisterClientComponent title="Para cadastrar o cliente, preencha todos os campos" />
+            <RegisterClientComponent client={props.match.params.id} title="Para cadastrar o cliente, preencha todos os campos" />
         </>
     );
 }

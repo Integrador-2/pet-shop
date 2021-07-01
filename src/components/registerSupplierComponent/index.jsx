@@ -13,7 +13,7 @@ import px2vw from "../../utils/px2vw";
 import { AnimalsList, AnimalsListButtonsContainer, AnimalsListContainer, AnimalsListDiv } from "../registerClientComponent/style";
 import { HeadCell, Line } from "../registerProductComponent/style";
 
-const RegisterSupplierComponent = ({ title }) => {
+const RegisterSupplierComponent = ({ supplier, title }) => {
     const {showAlert, showModal,
         setAlertConfig } = useContext(mainContext);    
     const [name, setName] = useState("");
@@ -21,7 +21,8 @@ const RegisterSupplierComponent = ({ title }) => {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState();    
     const [object, setObject] = useState();            
-    const [type, setType] = useState();            
+    const [type, setType] = useState();   
+    const [doing, setDoing] = useState(supplier ? 'edit' : 'insert');         
 
     useEffect(() => {
         if (object) {

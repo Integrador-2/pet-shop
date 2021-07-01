@@ -1,11 +1,11 @@
 import React from 'react';
 
-import List from '../components/List';
+import ListEmployeesComponent from '../components/listEmployeesComponent';
 
 const ListEmployee = () => {
     return (
         <>
-            <List origin="employee" title="Lista de todos funcionários" />
+            <ListEmployeesComponent origin="employee" title="Lista de todos funcionários" />
         </>
     );
 }

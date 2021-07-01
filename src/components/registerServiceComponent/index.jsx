@@ -11,7 +11,7 @@ import {
 import Modal from '../modal/index';
 import Alert from '../alert/index';
 
-const RegisterServiceComponent = ({ product, title }) => {
+const RegisterServiceComponent = ({ service, title }) => {
     const {showAlert, showModal,
         setAlertConfig } = useContext(mainContext);
     const [serviceObject, setServiceObject] = useState();
@@ -28,7 +28,7 @@ const RegisterServiceComponent = ({ product, title }) => {
     const [scheduleDate, setScheduleDate] = useState();
     const [timeScheduleDate, setTimeScheduleDate] = useState();
     
-    const [doing, setDoing] = useState(product ? 'edit' : 'insert');
+    const [doing, setDoing] = useState(service ? 'edit' : 'insert');
 
     useEffect(() => {
       if(object) {

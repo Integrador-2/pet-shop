@@ -11,9 +11,10 @@ import {
 import Modal from '../modal/index';
 import Alert from '../alert/index';
 
-const RegisterProductComponent = ({ origin, title }) => {
+const RegisterEmployeeComponent = ({ employee, title }) => {
     const {showAlert, showModal,
         setAlertConfig, alertConfig } = useContext(mainContext);
+    const [doing, setDoing] = useState(employee ? 'edit' : 'insert');
     const [image, setImage] = useState('');
     const [waitingResponse, setWaitingResponse] = useState('');
     const [name, setName] = useState("");
@@ -45,6 +46,22 @@ const RegisterProductComponent = ({ origin, title }) => {
 
         axios.post(`http://localhost/petshop/pet-shop/src/api/funcionarios/cadastrar`, {          
           dados: employeeObject        
+        }).then((response) => {
+            console.log(response);
+        });
+      }
+    }, [employeeObject])
+
+    useEffect(() => {
+      if (employeeObject && doing === 'insert') {
+        axios.post(`http://localhost/petshop/pet-shop/src/api/produtos/cadastrar`, {          
+          dados: employeeObject        
+        }).then((response) => {
+            console.log(response);
+        });
+      } else {
+        axios.post(`http://localhost/petshop/pet-shop/src/api/produtos/atualizar`, {          
+          dados: employee        
         }).then((response) => {
             console.log(response);
         });
@@ -145,7 +162,6 @@ const RegisterProductComponent = ({ origin, title }) => {
         endereco: address,
         genero: gender,
       })
-      //console.log(object);
     }
 
     return (
@@ -212,4 +228,4 @@ const RegisterProductComponent = ({ origin, title }) => {
     );
 }
 
-export default RegisterProductComponent;
+export default RegisterEmployeeComponent;

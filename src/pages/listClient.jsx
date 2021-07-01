@@ -1,11 +1,11 @@
 import React from 'react';
 
-import List from '../components/List';
+import ListClientsComponent from '../components/listClientsComponent';
 
 const ListClient = () => {
     return (
         <>
-            <List origin="client" title="Lista de todos clientes" />
+            <ListClientsComponent origin="client" title="Lista de todos clientes" />
         </>
     );
 }

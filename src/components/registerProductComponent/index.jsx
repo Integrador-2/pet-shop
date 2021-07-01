@@ -59,7 +59,6 @@ const RegisterProductComponent = ({ product, title }) => {
     }, [alertConfig, waitingResponse]);
 
     useEffect(() => {
-      console.log(doing);
       if (object && doing === 'insert') {
         axios.post(`http://localhost/petshop/pet-shop/src/api/produtos/cadastrar`, {          
           dados: object        

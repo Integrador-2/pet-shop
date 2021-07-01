@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { Redirect, Route } from "react-router-dom";
 
 import Alert from "../alert/index";
@@ -14,16 +15,52 @@ import ImgLogo from "../../assets/logo.png";
 
 import mainContext from "../../context/context";
 
-const LoginForm = () => {
 
-    const {showAlert, handleChangePage, history } = useContext(mainContext);
+const LoginForm = () => {
+    const {showAlert, handleChangePage, history, setAlertConfig } = useContext(mainContext);
+
+    const [isLogged, setIsLogged] = useState(false);
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        handleChangePage('start', history);
+        setIsLogged(true);
+        //handleChangePage('start', history);
     }
+
+    useEffect(() => {
+        if (isLogged !== '') {
+            if (!login) {
+                setAlertConfig({
+                    'type': 'alert',
+                    'title': 'Não é possível continuar',
+                    'text': 'Login não foi informado!',
+                    'show': 'flex'
+                })
+                setIsLogged('');
+                return;
+            }
+            if (!password) {
+                setAlertConfig({
+                    'type': 'alert',
+                    'title': 'Não é possível continuar',
+                    'text': 'Senha não foi informada!',
+                    'show': 'flex'
+                })
+                setIsLogged('');
+                return;
+            }
+            axios.post(`http://localhost/api/funcionarios/validaLogin`, {                    
+                dados: {
+                    login: login,
+                    password: password
+                }
+            }).then((response) => {
+                handleChangePage('start', history);
+            });        
+        }
+    }, [isLogged]); 
 
     return (
         <Container>

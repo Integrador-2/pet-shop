@@ -2,10 +2,10 @@ import React from 'react';
 
 import RegisterServiceComponent from '../components/registerServiceComponent';
 
-const RegisterService = () => {
+const RegisterService = (props) => {
     return (
         <>
-            <RegisterServiceComponent origin="service" title="Para cadastrar o serviço, preencha todos os campos" />
+            <RegisterServiceComponent service={props.match.params.id} origin="service" title="Para cadastrar o serviço, preencha todos os campos" />
         </>
     );
 }

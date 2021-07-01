@@ -15,23 +15,41 @@ import px2vw from "../../utils/px2vw";
 import mainContext from "../../context/context";
 
 
-const ListProductsComponent = ({ origin, title }) => {
+const ListEmployeesComponent = ({ origin, title }) => {
+
+    
+    const [values, setValues] = useState();
+    
+    const [selectedLine, setSelectedLine] = useState('');
+
+    const [waitingResponse, setWaitingResponse] = useState(false);
+    
+    const {showAlert, handleChangePage, setAlertConfig } = useContext(mainContext);
 
     useEffect(() => {
-        axios.post(`http://localhost/petshop/pet-shop/src/api/funcionarios/getAll`, {                    
+        axios.post(`http://localhost/api/funcionarios/getAllComEntidades`, {
         }).then((response) => {
             setValues(response.data.dados);
         });
     }, [])
 
-    const [values, setValues] = useState();
-
-    const [selectedLine, setSelectedLine] = useState('');
-
-    const {showAlert, handleChangePage } = useContext(mainContext);
-
     const handleInsert = () => {
-        handleChangePage('product/register/');
+        handleChangePage('employee/register/');
+    }
+
+    const handleEdit = () => {
+        handleChangePage(`employee/register/${selectedLine}`);
+    }
+
+    const handleDelete = () => {
+        setAlertConfig({
+            'type': 'confirm',
+            'title': 'Tem certeza que deseja efetuar essa ação?',
+            'text': 'Tem certeza que deseja excluir esse registro?',
+            'show': 'flex',
+            'response': 'false'
+        });
+        setWaitingResponse('delete');        
     }
 
 
@@ -56,10 +74,10 @@ const ListProductsComponent = ({ origin, title }) => {
                             values.map((item, key) =>                                                                
                                 <TableLine onClick={() => setSelectedLine(item.id)} selected={selectedLine === item.id ? true : false}>                                    
                                     <Cell id={item.id}>{item.id}</Cell>                                    
-                                    <Cell id={item.id}>{item.descricao}</Cell>                                    
-                                    <Cell id={item.id}>{item.tipo_produto}</Cell>                                    
-                                    <Cell id={item.id}>{item.preco ? parseFloat(item.preco).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) : 'R$ 0,00'}</Cell>                                    
-                                    <Cell id={item.id}>{item.quantidade}</Cell>                                    
+                                    <Cell id={item.id}>{item.nome}</Cell>                                    
+                                    <Cell id={item.id}>{item.telefone}</Cell>                                    
+                                    <Cell id={item.id}>{item.data_admissao}</Cell>                                    
+                                    <Cell id={item.id}>{item.data_demissao ? 'Inativo' : 'Ativo'}</Cell>                                    
                                 </TableLine>
                             )}
                         </tbody>
@@ -67,7 +85,7 @@ const ListProductsComponent = ({ origin, title }) => {
                 </TableContainer>
                 <ProductsListButtonsContainer>
                     <ButtonForm onClick={() => handleInsert()}>Inserir</ButtonForm>
-                    <ButtonForm>Editar</ButtonForm>
+                    <ButtonForm onClick={() => handleEdit()}>Editar</ButtonForm>
                     <ButtonForm>Remover</ButtonForm>
                 </ProductsListButtonsContainer>
             </ProductsListContainer>
@@ -75,4 +93,4 @@ const ListProductsComponent = ({ origin, title }) => {
     );
 }
 
-export default ListProductsComponent;
+export default ListEmployeesComponent;
